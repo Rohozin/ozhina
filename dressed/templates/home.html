@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+    <div class="ozhinabig">
+        <a><img src="{% static 'images/OZHINA.svg' %}"></a>
+    </div>
+    <div class="me">
+        <div class="photo">
+            <a><img class="oneph" src="{% static 'images/one.png' %}"></a>
+        </div>
+    </div>    
+    <div class="text">
+        <p> Я Олена ,творчий діяч.Допомагаю створити та довести задуману творчу ідею до реалізації.Кожен має право на самовираження і за допомогою бумаги та пари кольорів- це можна здійснити за різними напрямками, можливо за допомогою незвичайного крою,декору або створення розпису на тканині, для віртуальної гри або іграшки,навіть до особистої ювелірної прикраси. Надихаю творчими курсами, де ми разом творимо і створюємо красу в цей світ.</p>
+    </div>
+    <div class="box">
+        <a><img class="oneph" src="{% static 'images/box.svg' %}"></a>
+    </div>
+{% endblock %}

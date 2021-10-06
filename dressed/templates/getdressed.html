@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Одягтися
+{% endblock %}
+
+{% block content %}
+    <div class="catcollections">
+        <div class="row">
+            <div class="rowon">
+                <div class="sphr"><a> SPHERES OF CREATIVE </a></div>
+                <div class="rowtwo">
+                    {% for category in links %}
+                    <a class="acategory" href="{{category.get_url}}"> {{category.name}} </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="userblock">
+            <div class="glow-on-hover" >
+                <img src="{% static 'images/form.svg' %}">
+            </div>
+            <div class="uss">  
+                {% if request.user.is_authenticated and request.user.first_name %}
+                <span class="usrprofon">{{ request.user.first_name }}</span>
+                <a class="us11" href="{% url 'signout' %}" >exit</a>
+                {% else %}
+                <a class="usrprof" href="{% url 'login' %}"><img src="{% static 'images/login.svg' %}"></a>
+                <a class="usrprof" href="{% url 'signup' %}"><img src="{% static 'images/signup.svg' %}"></a>
+                {% endif %}       
+            </div>  
+        </div> 
+        </div>
+        <div class="imgcoll">  
+            <div class="container">
+
+                {% for product in products %}
+                    <div class="cont">
+                        <a class="r1"  href="{{product.get_url}}" > <img class="r1" src="{{product.image.url}}" alt=" {{product.name_collection}} "></a>
+                        <p class="r2">  </p>
+                        <a class="r3" href="{{product.get_url}}"> {{product.name_collection}} </a>
+                    </div>
+                {% endfor %}
+                    
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="create">
+        <h1>Створюємо разом</h1>
+    </div>
+    
+    <div class="grid">
+        <div class="creategrid">
+            <div class="grid-item item1">
+                <p> віртуальний аватар за параметрами вашого тіла. </p>
+            </div> 
+            <div class="grid-item item2">
+                <p> віртуальний одяг за параметрами вашого аватару. </p>
+            </div>
+            
+            <div class="grid-item item3">
+                <p> персональну конструкторську базу данних лекал для відшивання одягу. </p>
+            </div>
+            <div class="grid-item item4">
+                <p> реалістичну віртуальну модель поведінки одягу на тілі.</p>
+            </div>
+            <div class="grid-item item5">
+                <p> анімацію рухів, пози для фотосессії.</p>
+                </div>
+            <div class="grid-item item6">
+                <p> персональний віртуальний образ вашої коллекції у різних змодельованних сценах</p>
+            </div>
+        </div>
+    </div>
+    <div class="gridform1">
+        <div class="grid-item it1">
+            <p> віртуальний аватар за параметрами вашого тіла. </p>
+        </div> 
+        <div class="grid-item it2">
+            <p> віртуально створенний одяг за параметрами вашого аватару. </p>
+        </div>
+    </div>
+
+    <div class="gridform2">
+        <div class="grid-item it3">
+            <p> персональна конструкторська база данних лекал для створення одягу. </p>
+        </div>
+        <div class="grid-item it4">
+            <p> реалістична віртуальна модель поведінки одягу на тілі.</p>
+        </div>
+        <div class="grid-item it5">
+            <p> створимо анімацію рухів, пози для фотосессії.</p>
+        </div>
+    </div>
+    <div class="gridform3">
+        <div class="grid-item it6">
+            <p> персональний віртуальний образ вашої колекції у різних змодельованних сценах</p>
+        </div>
+    </div>
+{% endblock %}

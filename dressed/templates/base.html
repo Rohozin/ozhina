@@ -1,0 +1,41 @@
+{% load static %}
+<html lang="en">
+
+<body>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="wigth=device-width,initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/getdressed.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prod.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/teach.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+</body>
+
+<head>
+    <nav class="navbar">
+        <div class="out">
+            <div class="in one">
+                <a href="{% url 'getdressed'%}">To get dressed</a>
+            </div>
+            
+            <div class="in two">
+                <a href="{% url 'home'%}" class="logo">
+                    <img src="{% static 'images/logo.svg' %}">
+                </a>
+            </div>
+            <div class="in three">
+                <a href="{% url 'teach'%}">Learn to be creative</a>
+            </div>    
+        </div>
+    </nav>
+</head>
+
+{% block content %}
+{% endblock %}
+
+    {% include 'footer.html' %}
+

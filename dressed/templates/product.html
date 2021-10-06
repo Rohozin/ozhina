@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Product
+{% endblock %}
+
+{% block content %}
+
+    <div class="flexctprod">
+            
+            <div class="prodbox">
+                <h1 class="prodboxon">{{ product.name_collection }}</h1>
+                <p class="prodboxtwo">{{ product.category }}</p>    
+            </div>
+            <div class="gdimgctproduct">
+                <div class="ctproduct">
+                    <div class="gridbuttonon"></div>
+                    <div class="prodcoll">
+                        {% for images in image %}
+                            <div class="gridnamproduct">
+                                <img class="imgpr1" src="{{images.image.url}}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="gridbuttonon"></div>
+                </div>
+            </div>
+            <div class="prodboxthree">
+                <p class="prodboxfor">{{ product.description }}</p>
+                <p class="prodboxfor">{{ product.price }}</p>
+                <p class="prodboxfor">{{ product.format_file }}</p>
+            </div> 
+    </div>
+
+
+{% endblock %}

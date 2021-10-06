@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.ozhina{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
