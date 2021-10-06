@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import Group, User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 
 from .forms import SignUpForm
@@ -25,7 +26,7 @@ def getdressed (request, category_slug=None):
     return render(request, 'getdressed.html', {'category':category_page,
                 'products' : products} )
 
-
+@login_required
 def product (request, category_slug, product_slug):
     product = Product.objects.get(category__slug=category_slug
             , slug= product_slug)

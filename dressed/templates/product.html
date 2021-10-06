@@ -9,7 +9,13 @@
 {% block content %}
 
     <div class="flexctprod">
-            
+        {% if request.user.is_authenticated %}
+            <ul class="menu">
+                <li {% if section == "product" %} class="selected"{% endif %}>
+                    <a href="{% url "product" %}">My dashboard</a>
+            </ul>
+        {% endif %}
+        <span class="user">
             <div class="prodbox">
                 <h1 class="prodboxon">{{ product.name_collection }}</h1>
                 <p class="prodboxtwo">{{ product.category }}</p>    
