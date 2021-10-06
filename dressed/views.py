@@ -47,7 +47,7 @@ def signUpView(request):
 			form.save()
 			username = form.cleaned_data.get('username')
 			signup_user = User.objects.get(username= username)
-			user_group = Group.objects.get(name= 'Usercustomer')
+			user_group = Group.objects.get(name= 'User')
 			user_group.user_set.add(signup_user)
 	else:
 		form = SignUpForm()
