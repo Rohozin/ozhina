@@ -92,3 +92,28 @@ class Profile (models.Model):
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
+
+class Course (models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50,
+                                unique=True)
+    about = models.TextField(max_length=500)
+    image = models.ImageField(upload_to="course",
+                                blank=True)
+    lessons_circle = models.DecimalField(max_digits=10, decimal_places=2)
+    #Цыклы занятий
+    circle = models.DecimalField(max_digits=10, decimal_places=2)
+    #Количество часов
+    time = models.TextField(max_length=51)
+
+    class Meta:   
+        ordering = ('name',)
+        verbose_name = 'course'
+        verbose_name_plural = 'courses'
+
+    def get_url(self):
+        return reverse('course_list', args=[self.slug])
+
+    def __str__(self):
+    		return self.name
+    

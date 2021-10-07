@@ -11,4 +11,14 @@
     <div class="ozhina">
         <img src="{% static 'images/Ozhyna.svg' %}">
     </div>
+    <p>passion in creativity</p>
+
+    <div class="course">
+    {% for teaches in teach %}
+        <a class="r3" href=""> {{teaches.name}} </a>
+        <a class="r3" href=""><img src="{{teaches.image.url}}"></a>
+        <a class="r3" href=""> {{teaches.about}} </a>
+
+    {% endfor %}
+    </div>
 {% endblock %}

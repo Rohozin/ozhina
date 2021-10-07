@@ -5,9 +5,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-
 from .forms import SignUpForm
-from .models import Category, Product, Imagecollection
+from .models import Category, Product, Imagecollection, Course
 # Страницы веб-приложения
 
 def home (request):
@@ -33,11 +32,9 @@ def product (request, category_slug, product_slug):
     image = Imagecollection.objects.filter(collectionpresent=product, draft=False)
     return render(request, 'product.html', {'product' : product, 'image' : image})
 
-
-
 def teach (request):
-    return render(request, 'teach.html')
-
+    teach  = Course.objects.all()
+    return render(request, 'teach.html', {'teach' : teach})
 
 # User
 def signUpView(request):
