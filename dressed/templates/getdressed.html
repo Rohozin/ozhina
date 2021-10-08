@@ -19,7 +19,9 @@
             </div>
             <div class="userblock">
             <div class="glow-on-hover" >
-                <img src="{% static 'images/form.svg' %}">
+                <a href="{% url 'addavatar'%}" >
+                    <img src="{% static 'images/form.svg' %}">
+                </a>
             </div>
             <div class="uss">  
                 {% if request.user.is_authenticated and request.user.first_name %}

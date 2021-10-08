@@ -8,17 +8,34 @@
 
 
 {% block content %}
-    <div class="ozhina">
-        <img src="{% static 'images/Ozhyna.svg' %}">
+    <div class="boxpic">
+        <p>passion in creativity</p>
     </div>
-    <p>passion in creativity</p>
 
     <div class="course">
     {% for teaches in teach %}
-        <a class="r3" href=""> {{teaches.name}} </a>
-        <a class="r3" href=""><img src="{{teaches.image.url}}"></a>
-        <a class="r3" href=""> {{teaches.about}} </a>
+        <div class = "boxcourseinf">
+            <div class = "boxcourses">
+                <div class = "boxcoursestwo">
+                <div class = "boxhar">
+                    <a class="r3" href=""> {{teaches.alive}} </a>
+                    <a class="r3" href=""> {{teaches.online}} </a>
+                    <a class="r3" href=""><p>hours in day</p> {{teaches.time}} </a>
+                    <a class="r3" href=""><p>circle in course</p> {{teaches.circle}} </a>
+                    <a class="r3" href=""><p>you course</p> {{teaches.lessons_circle}} </a>
+                </div>
+                    <a ><img class="boximage" src="{{teaches.image.url}}"></a>  
+                </div>
+                <div class = "boxcoursestwo">
+                    <a class="coursename" href=""> {{teaches.name}} </a>
 
+                    <div class="button">
+                        <p class="boxteachab" href=""> {{teaches.about}} </p>
+                    </div>
+                </div>   
+            </div>
+        </div>
     {% endfor %}
     </div>
+    <script src="static/js/script.js"></script>
 {% endblock %}

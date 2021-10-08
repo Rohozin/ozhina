@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django.contrib.auth.models import Group, User
@@ -5,8 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-from .forms import SignUpForm
-from .models import Category, Product, Imagecollection, Course
+from .forms import SignUpForm, ProfileEditForm
+from .models import *
 # Страницы веб-приложения
 
 def home (request):
@@ -25,7 +26,6 @@ def getdressed (request, category_slug=None):
     return render(request, 'getdressed.html', {'category':category_page,
                 'products' : products} )
 
-@login_required
 def product (request, category_slug, product_slug):
     product = Product.objects.get(category__slug=category_slug
             , slug= product_slug)
@@ -35,6 +35,20 @@ def product (request, category_slug, product_slug):
 def teach (request):
     teach  = Course.objects.all()
     return render(request, 'teach.html', {'teach' : teach})
+
+@login_required
+def addavatar (request):
+    if request.method == "POST":
+        profile = ProfileEditForm(user=request.user)
+        form = ProfileEditForm (request.POST, instance=profile)
+        if form.is_valid():
+            pr=form.save(commit=False)
+            pr.user = request.user
+            pr.save()
+            return HttpResponseRedirect('/')        
+    else:
+        form = ProfileEditForm()
+    return render(request, 'addavatar.html', {'form': form})
 
 # User
 def signUpView(request):

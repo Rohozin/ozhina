@@ -24,7 +24,8 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('phone_number',
+        fields = ('user',
+                    'phone_number',
                     'city',
                     'full_height',
                     'neck_girth',

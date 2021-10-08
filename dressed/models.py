@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from django.conf import settings
@@ -69,7 +70,7 @@ class Imagecollection (models.Model):
     		return self.title
 
 class Profile (models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,blank=True,on_delete=models.CASCADE)
     phone_number = models.CharField (max_length=25)
     city = models.TextField(max_length=100,blank=True)
     full_height = models.DecimalField(max_digits=10, decimal_places=2, help_text= "полный рост")
@@ -100,11 +101,15 @@ class Course (models.Model):
     about = models.TextField(max_length=500)
     image = models.ImageField(upload_to="course",
                                 blank=True)
-    lessons_circle = models.DecimalField(max_digits=10, decimal_places=2)
+    lessons_circle = models.DecimalField(max_digits=10, decimal_places=1)
     #Цыклы занятий
-    circle = models.DecimalField(max_digits=10, decimal_places=2)
+    circle = models.DecimalField(max_digits=10, decimal_places=1)
     #Количество часов
     time = models.TextField(max_length=51)
+    online = models.TextField(max_length=10,
+                                        blank=True)
+    alive = models.TextField(max_length=10,
+                                        blank=True)
 
     class Meta:   
         ordering = ('name',)
