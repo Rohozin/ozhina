@@ -1,4 +1,4 @@
-from django.http.response import HttpResponseRedirect
+
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django.contrib.auth.models import Group, User
@@ -39,15 +39,21 @@ def teach (request):
 @login_required
 def addavatar (request):
     if request.method == "POST":
-        profile = ProfileEditForm(user=request.user)
+        profile = ProfileEditForm(initial={'user': request.user})
         form = ProfileEditForm (request.POST, instance=profile)
         if form.is_valid():
-            pr=form.save(commit=False)
-            pr.user = request.user
-            pr.save()
-            return HttpResponseRedirect('/')        
+            try:
+                post = form.save(commit=False)
+                post.author = request.user
+                post.save()
+                return redirect('/', pk=post.pk)
+            except:
+                form.add_error(None, 'Can try again')
+            
+        else:
+            form = ProfileEditForm()
     else:
-        form = ProfileEditForm()
+        form = ProfileEditForm(initial={'user': request.user})
     return render(request, 'addavatar.html', {'form': form})
 
 # User

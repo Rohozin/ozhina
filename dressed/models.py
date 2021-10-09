@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.db import models
 
 from django.conf import settings
@@ -70,9 +70,11 @@ class Imagecollection (models.Model):
     		return self.title
 
 class Profile (models.Model):
-    user = models.OneToOneField(User,blank=True,on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                            on_delete=models.CASCADE)
     phone_number = models.CharField (max_length=25)
     city = models.TextField(max_length=100,blank=True)
+    photo = models.ImageField(upload_to='users/', blank=True)
     full_height = models.DecimalField(max_digits=10, decimal_places=2, help_text= "полный рост")
     neck_girth = models.DecimalField(max_digits=10, decimal_places=2, help_text= "обхват шеи")                 
     chest_girth = models.DecimalField(max_digits=10, decimal_places=2, help_text= "обхват груди")
