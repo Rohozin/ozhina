@@ -1,13 +1,17 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
 
+from django.http import HttpResponse
+from django.shortcuts import render
 from django.contrib.auth.models import Group, User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-from .forms import SignUpForm, ProfileEditForm
+from .forms import LoginForm, ProfileEditForm
 from .models import *
+
+
 # Страницы веб-приложения
 
 def home (request):
@@ -57,35 +61,26 @@ def addavatar (request):
     return render(request, 'addavatar.html', {'form': form})
 
 # User
-def signUpView(request):
-	if request.method == 'POST':
-		form = SignUpForm(request.POST)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data.get('username')
-			signup_user = User.objects.get(username= username)
-			user_group = Group.objects.get(name= 'User')
-			user_group.user_set.add(signup_user)
-	else:
-		form = SignUpForm()
-	return render(request, 'signup.html', {'form': form})
-
-def loginView (request):
+def user_login(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request,user)
-                return redirect ('home')
+            cd = form.cleaned_data
+            user = authenticate(request,
+                                username=cd['username'],
+                                password=cd['password'])
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponse('Authenticated successfully')
             else:
-                return redirect('signap')
+                return HttpResponse('Disabled account')
+        else:
+            return HttpResponse('Invalid login')
     else:
-        form = AuthenticationForm()
+        form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
-def signoutView(request):
-    logout(request)
-    return redirect('login')
+@login_required
+def dashboard(request):
+ return render(request,'dashboard.html')

@@ -18,19 +18,23 @@
                 </div>
             </div>
             <div class="userblock">
-            <div class="glow-on-hover" >
-                <a href="{% url 'addavatar'%}" >
-                    <img src="{% static 'images/form.svg' %}">
-                </a>
-            </div>
+            
             <div class="uss">  
-                {% if request.user.is_authenticated and request.user.first_name %}
-                <span class="usrprofon">{{ request.user.first_name }}</span>
-                <a class="us11" href="{% url 'signout' %}" >exit</a>
-                {% else %}
-                <a class="usrprof" href="{% url 'login' %}"><img src="{% static 'images/login.svg' %}"></a>
-                <a class="usrprof" href="{% url 'signup' %}"><img src="{% static 'images/signup.svg' %}"></a>
-                {% endif %}       
+                {% if request.user.is_authenticated %}
+                    <div class="glow-on-hover" >
+                        <a href="{% url 'addavatar'%}" >
+                            <img src="{% static 'images/form.svg' %}">
+                        </a>
+                    </div>
+                {% endif %}
+                <span class="user">
+                    {% if request.user.is_authenticated %}
+                        Hello {{ request.user.first_name }},
+                        <a href="{% url "logout" %}">Logout</a>
+                    {% else %}
+                        <a href="{% url "login" %}">Log-in</a>
+                    {% endif %}
+                </span>       
             </div>  
         </div> 
         </div>

@@ -6,20 +6,9 @@ import datetime
 from .models import Profile
 
 # Добавляем дополнительные поля пользователя
-class SignUpForm (UserCreationForm):
-    first_name = forms.CharField(max_length=100, required=True)
-    email = forms.EmailField(max_length=250, help_text='A valid email address, please.')
-    day = forms.DateField(initial=datetime.date.today)
-
-    class Meta:
-        model = User
-        fields = ('first_name', 'email', 'username', 'day', 'password1', 'password2')
-
-
-class UserEditForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('first_name', 'email')
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
 
 class ProfileEditForm(forms.ModelForm):
     class Meta:

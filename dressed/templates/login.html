@@ -9,38 +9,15 @@
 {% endblock %}
 
 {% block content %}
-
-    <div>
-		<br>
-		<h1 class="product_title text-center">
-			Login or Create a New Account
-		</h1>
-		<div class="wor">
-			<div class= "custom_div">
-				<br>
-				<h2 class="product_title">
-					New User
-				</h2>
-				<br>
-				<a href="{% url 'signup' %}" class="btn-secondary">Create New User</a>
-			</div>
-			<div class="bg-light">
-				<div>
-					<br>
-					<h2 class="product_title">
-						Registered User Only
-					</h2>
-					<form method='post'>
-						{% csrf_token %}
-						<p>{{ form | crispy}}</p>
-						<button type='submit' class="btn-secondary">Log in</button>
-					
-					</form>
-				</div>
-				
-			</div>
-		</div>
+	<div class="logdiv">
+    <h1>Log-in</h1>
+ 	<p>Please, use the following form to log-in:</p>
+	
+		<form action="." method="post">
+			{{ form.as_p }}
+			{% csrf_token %}
+			<p><input type="submit" value="Log in"></p>
+		</form>
 	</div>
-	<br>
 
 {% endblock %}
