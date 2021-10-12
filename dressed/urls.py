@@ -8,6 +8,7 @@ urlpatterns = [
     path('teach', views.teach, name='teach'),
     path('product',views.product, name='product'),
     path('addavatar',views.addavatar, name='addavatar'),
+    path('register/', views.register, name='register'),
     path('<slug:category_slug>', views.getdressed, name = 'products_by_category'),
     path('<slug:category_slug>/<slug:product_slug>', views.product, name = 'product_detail'),
     path('<slug:teach_slug>', views.teach, name = 'teach'),
@@ -20,4 +21,6 @@ urlpatterns = [
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
+    
+    
 ]

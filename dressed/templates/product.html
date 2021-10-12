@@ -9,12 +9,6 @@
 {% block content %}
 
     <div class="flexctprod">
-        {% if request.user.is_authenticated %}
-            <ul class="menu">
-                <li {% if section == "product" %} class="selected"{% endif %}>
-                    <a href="{% url "product" %}">My dashboard</a>
-            </ul>
-        {% endif %}
         <span class="user">
             <div class="prodbox">
                 <h1 class="prodboxon">{{ product.name_collection }}</h1>
@@ -35,9 +29,13 @@
             </div>
             <div class="prodboxthree">
                 <p class="prodboxfor">{{ product.description }}</p>
-                <p class="prodboxfor">{{ product.price }}</p>
-                <p class="prodboxfor">{{ product.format_file }}</p>
+                <p class="prodboxfor">Цена за виртуальную модель {{ product.price }} $ .</p>
+                <p class="prodboxfor">Консультаций {{ product.time }}</p>
+                <p class="prodboxfor">Готовые лекала для пошива формата-{{ product.format_file }}.</p>
             </div> 
+            <div class="glow-on-hover" >
+                <img src="{% static 'images/form.svg' %}">
+            </div>
     </div>
 
 

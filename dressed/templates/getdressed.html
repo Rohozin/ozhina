@@ -10,7 +10,7 @@
     <div class="catcollections">
         <div class="row">
             <div class="rowon">
-                <div class="sphr"><a> SPHERES OF CREATIVE </a></div>
+                <div class="sphr"><a> OUR INFLUENCE ON FASHION </a></div>
                 <div class="rowtwo">
                     {% for category in links %}
                     <a class="acategory" href="{{category.get_url}}"> {{category.name}} </a>
@@ -18,24 +18,19 @@
                 </div>
             </div>
             <div class="userblock">
-            
-            <div class="uss">  
-                {% if request.user.is_authenticated %}
-                    <div class="glow-on-hover" >
-                        <a href="{% url 'addavatar'%}" >
-                            <img src="{% static 'images/form.svg' %}">
-                        </a>
-                    </div>
-                {% endif %}
-                <span class="user">
+                <div class="glow-on-hover" >
+                    <img src="{% static 'images/form.svg' %}">
+                </div>
+            </div>
+            <div class="uss">
                     {% if request.user.is_authenticated %}
-                        Hello {{ request.user.first_name }},
-                        <a href="{% url "logout" %}">Logout</a>
+                    <a class="usrprofon" href="{% url "addavatar" %}">{{ request.user.first_name }}</a>
+                    <a class="usrprof" href="{% url "logout" %}">logout</a>
                     {% else %}
-                        <a href="{% url "login" %}">Log-in</a>
-                    {% endif %}
-                </span>       
-            </div>  
+                    <a class="usrprof" href="{% url "login" %}">login</a>
+                    {% endif %}      
+            </div>
+             
         </div> 
         </div>
         <div class="imgcoll">  
@@ -80,31 +75,6 @@
             <div class="grid-item item6">
                 <p> персональний віртуальний образ вашої коллекції у різних змодельованних сценах</p>
             </div>
-        </div>
-    </div>
-    <div class="gridform1">
-        <div class="grid-item it1">
-            <p> віртуальний аватар за параметрами вашого тіла. </p>
-        </div> 
-        <div class="grid-item it2">
-            <p> віртуально створенний одяг за параметрами вашого аватару. </p>
-        </div>
-    </div>
-
-    <div class="gridform2">
-        <div class="grid-item it3">
-            <p> персональна конструкторська база данних лекал для створення одягу. </p>
-        </div>
-        <div class="grid-item it4">
-            <p> реалістична віртуальна модель поведінки одягу на тілі.</p>
-        </div>
-        <div class="grid-item it5">
-            <p> створимо анімацію рухів, пози для фотосессії.</p>
-        </div>
-    </div>
-    <div class="gridform3">
-        <div class="grid-item it6">
-            <p> персональний віртуальний образ вашої колекції у різних змодельованних сценах</p>
         </div>
     </div>
 {% endblock %}

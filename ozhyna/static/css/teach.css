@@ -1,21 +1,47 @@
 
-
+.teachbox {
+    padding-top: 300px; 
+}
 .boxpic{
     display: flex;
     justify-content: center;
     width: 100%;
-    padding-top: 200px;
-    padding-bottom: 200px;
-    background-color: rgb(255, 255, 255);
 }
 
+.boxcourses {
+    padding-left: 5%;
+    padding-left: 5%;
+}
+
+.co {
+    text-decoration: none;
+    font-size: 41;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+.cop {
+    font-size: 11;
+    color:rgb(255, 255, 255);
+}
+.copq {
+    padding-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 61;
+    color:rgb(255, 255, 255);
+}
 .course {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+    padding-top: 200px;
+    padding-bottom: 200px;
     padding-left: 10%;
     padding-right: 10%;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.329);
 }
 
 .boxcourseinf {
@@ -23,30 +49,53 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 3px;
-    margin-right: 3px;
-    width: 300px;
-    height: 800px;
-    width: 60%;
-    background-color: rgb(250, 240, 240);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-left: 7px;
+    margin-right: 7px;
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.623);
 
 }
 
+.boxnar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 21px;
+
+}
 .boxhar {
     display: flex;
     flex-direction: column;
 }
 .coursename {
-    font-size: 21;
+    font-size: 31;
     text-decoration: none;
     font-weight: bold;
-    color: cadetblue;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 .boxteachab {
     font-size: 13;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     
 }
 .boximage {
     width: 80%;
 }
+
+canvas {
+    display: block;
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    height: 900px;
+    z-index: 1;
+    background:hsl(0, 0%, 100%);
+  }
+canvas { 
+    position: absolute;
+    z-index: -1;
+  }

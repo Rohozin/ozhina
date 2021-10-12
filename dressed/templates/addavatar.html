@@ -3,19 +3,21 @@
 {% load static %}
 
 {% block title %}
-    Avatar
+    Edit your avatar
 {% endblock %}
 
 {% block content %}
     <div class="addform">
-    <form action= "{% url 'getdressed'%}" method="post">
-        {% csrf_token %}
-        <p><label class="form-label" for="{{ form.user.id_for_label }}">{{form.user.label}}: </label> {{ form.user }} </p>
-        <div> {{ form.user.errors }} </div>
-        <p><label class="form-label" for="{{ form.phone_number.id_for_label }}">{{form.phone_number.label}}: </label> {{ form.phone_number }} </p>
-        <button type="submit">Add</button>
-        <img class="addimg" src="{% static 'images/avatar.png' %}">
-        <p> YOU PERSONAL AVATAR </p>
-    </form>    
+        <h1>Welcome to your PERSONAL AVATAR </h1>
+        <p>You can edit your account using the following form:</p>
+
+        <form action="." method="post" enctype="multipart/form-data">
+            {{ user_form.as_p }}
+            <a href="{% url "password_change" %}">change your password</a>
+            {{ profile_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Save changes"></p>
+            <img class="addimg" src="{% static 'images/avatar.png' %}">
+        </form>   
     </div>
 {% endblock %}

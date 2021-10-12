@@ -1,4 +1,5 @@
 
+from django.core.exceptions import RequestAborted
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django.http import HttpResponse
@@ -7,7 +8,7 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
-from .forms import LoginForm, ProfileEditForm
+from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import *
 
 
@@ -39,25 +40,21 @@ def teach (request):
     teach  = Course.objects.all()
     return render(request, 'teach.html', {'teach' : teach})
 
+
 @login_required
-def addavatar (request):
-    if request.method == "POST":
-        profile = ProfileEditForm(initial={'user': request.user})
-        form = ProfileEditForm (request.POST, instance=profile)
-        if form.is_valid():
-            try:
-                post = form.save(commit=False)
-                post.author = request.user
-                post.save()
-                return redirect('/', pk=post.pk)
-            except:
-                form.add_error(None, 'Can try again')
-            
-        else:
-            form = ProfileEditForm()
+def addavatar(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user,data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile,
+                                        data=request.POST,
+                                        files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
     else:
-        form = ProfileEditForm(initial={'user': request.user})
-    return render(request, 'addavatar.html', {'form': form})
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile)
+    return render(request,'addavatar.html',{'user_form': user_form,'profile_form': profile_form})
 
 # User
 def user_login(request):
@@ -80,6 +77,21 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
-@login_required
-def dashboard(request):
- return render(request,'dashboard.html')
+def register (request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            # Cоздаем нового пользователя, но пока не сохраняем в базу данных.
+            new_user = user_form.save(commit=False)
+            # Создаем пользователю зашифрованный пароль.
+            new_user.set_password(user_form.cleaned_data['password'])
+            # Сохраняем пользоваетля в базе данных.
+            new_user.save()
+            # Создание дополнительных данных профиля пользователя.
+            Profile.objects.create(user=new_user)
+            return render(request, 'register_done.html', {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render (request, 'register.html', {'user_form': user_form})
+
+            

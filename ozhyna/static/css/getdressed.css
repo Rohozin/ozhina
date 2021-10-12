@@ -1,77 +1,28 @@
 
 
-.create {
-    display: flex;
-    position: static;
-    justify-content: center;
-    margin-top: 111px;
-    color: #818181;
-}
-
-.grid {
-    display: flex;
-    justify-content: center;
-    margin-left: 361px;
-    margin-right: 361px;
-}
-.creategrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
-    grid-gap: 7px;
-    height: 25vh;
-}
-
-
-.grid-item {
-    text-align: center;
-    font-size: 1.1em;
-    padding: 1.5em;
-    color: rgb(207, 207, 207);
-}
-
-.item1 {
-    background-color:rgb(248, 248, 248);
-}
-
-.item2 {
-    background-color:rgb(248, 248, 248);
-}
-.item3 {
-    background-color:rgb(248, 248, 248);
-}
-.item4 {
-    background-color:rgb(248, 248, 248);
-}
-.item5 {
-    background-color:rgb(248, 248, 248);
-}
-.item6 {
-    background-color:rgb(248, 248, 248);
-}
 .catcollections {
-    margin-top: 4%;
-    padding-bottom: 10%;
-    background: rgb(0, 0, 0);
-    box-shadow: 0 0 31px 20px rgb(0, 0, 0);
+    margin-top: 35px;
 }
 
 .row {
-    padding-top: 91px;
-    padding-bottom: 111px;
+    padding-top: 80px;
+    padding-bottom: 60px;
     justify-content: center;
-    margin-top: 31px;
+    margin-top: 21px;
     color: rgb(104, 104, 104);
     display: flex;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 10px 20px rgb(0, 0, 0);
     
 }
 
 .sphr {
     font-weight: bold;
     display: flex;
+    font-size: 25;
     flex-direction: row-reverse;
     color: rgb(255, 255, 255);
-    text-shadow: 0px 3px 10px rgb(225, 0, 255);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
     
 }
 .us11 {
@@ -81,7 +32,7 @@
 .rowon {
     display: flex;
     flex-direction: column;
-    padding-top: 45px;
+
 
 }
 
@@ -108,21 +59,12 @@
     text-shadow: 0px 0px 20px rgb(255, 255, 255), 0px 0px 20px rgb(255, 255, 255), 0px 0px 20px rgb(255, 255, 255);
 }
 
-.userblock {
-    display: flex;
-    align-items: center;
-
-}
 
 .glow-on-hover {
-    background: rgb(0, 0, 0);
     cursor: pointer;
     position: relative;
-    border-radius: 100%;
-    left: 10px;
-    right: 20px;
-    z-index: 0;
-    margin-left: 30px;
+    z-index: 1;
+    margin-left: 20px;
 
 }
 
@@ -160,7 +102,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgb(0, 0, 0);
+    
     left: 0;
     top: 0;
     border-radius: 100%;
@@ -173,35 +115,45 @@
 }
 
 .usrprofon {
-    padding-left: 35px;
-    padding-top: 2.5em;
+    padding-top: 11px;
+    margin-left: 25px;
+    margin-right: 25px;
     font-size: 17;
-    color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
     font-weight: bold;
+    text-decoration: none;
 }
 .usrprof {
-    padding-left: 1em;
-    font-size: 21;
-    color: rgb(0, 204, 51);
     
+    
+    padding-left: 13px;
+    padding-top: 15px;
+    font-size: 11;
+    width: 60px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
     font-weight: bold;
     
 }
 
 .uss {
-    width: 110px;
     height: 100px;
     display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
+    margin-left: 15px;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
     height: 100%;
 }
 
 .imgcoll {
     color: rgb(226, 226, 226);
-    width: 1200px;
-    padding-bottom: 10px;
+    width: 1000px;
+    padding-bottom: 60px;
+    padding-top: 61px;
     margin: auto;
 }
 
@@ -221,7 +173,6 @@
     grid-row:  1/ 2;
     width: 100%;
     background-color: rgb(37, 0, 37);
-    box-shadow: 0 0 21px 1px rgb(80, 0, 90);
     border-radius: 100%;
 }
 
@@ -240,37 +191,4 @@
     padding-bottom: 5px;
     text-decoration: none;
     color: rgb(207, 207, 207);
-}
-
-
-
-.gridform1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1px;
-}
-.it1 {
-    background-color:rgb(0, 0, 0);
-}
-.it2 {
-    background-color:rgb(0, 0, 0);
-
-}
-.gridform2 {
-    display: grid;
-    grid-template-columns: 1fr 300px 1fr;
-    grid-gap: 1px;
-}
-.it3 {
-    background-color:rgb(0, 0, 0);
-}
-.it4 {
-    background-color:rgb(0, 0, 0);
-    
-}
-.it5 {
-    background-color:rgb(0, 0, 0);
-}
-.it6 {
-    background-color:rgb(0, 0, 0);
 }

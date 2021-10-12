@@ -16,6 +16,7 @@
     justify-content: center;
     margin-top: 450px;  
     background-color: black;
+    color: darkmagenta;
 }
 .photo {
     padding-top: 210px;
@@ -49,4 +50,5 @@
     padding-right: 351px;
     padding-bottom: 210px;
     background-color: black;
+    color: cornsilk;
 }

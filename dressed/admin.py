@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Product, Imagecollection, Profile, Course
+from .models import *
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -26,6 +26,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ['user',
                     'phone_number',
                     'city',
+                    'photo',
                     'full_height',
                     'neck_girth',
                     'chest_girth',
