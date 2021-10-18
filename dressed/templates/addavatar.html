@@ -7,17 +7,28 @@
 {% endblock %}
 
 {% block content %}
+<div class="addb">
     <div class="addform">
-        <h1>Welcome to your PERSONAL AVATAR </h1>
-        <p>You can edit your account using the following form:</p>
+        <div class="add">
+            <h1>Персональний AVATAR </h1>
+            <p>Перед замовленням розробки одягу</p> 
+            <p>змінюйте свої дані на актуальні</p>
+            <img class="addimg" src="{% static 'images/avatar.png' %}"> 
+            <p>розміри вказати у см (90,7)</p>
+        </div>
+        <form action="." method="post">
+            <div class="add1">
+                {{ user_form.as_p }}
+            </div>
+            <div class="add2">
 
-        <form action="." method="post" enctype="multipart/form-data">
-            {{ user_form.as_p }}
-            <a href="{% url "password_change" %}">change your password</a>
-            {{ profile_form.as_p }}
-            {% csrf_token %}
-            <p><input type="submit" value="Save changes"></p>
-            <img class="addimg" src="{% static 'images/avatar.png' %}">
-        </form>   
+                {{ profile_form.as_p }}
+                {% csrf_token %}
+                <p><input type="submit" value="Save changes"></p>
+            </div>
+    
+        </form>
     </div>
+
+</div>
 {% endblock %}

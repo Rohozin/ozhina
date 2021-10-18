@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/getdressed.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/prod.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/addavatar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/teach.css' %}">
@@ -17,10 +18,21 @@
 </body>
 
 <head>
-    <nav class="navbar">
+    <div class="message">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <a class="{{ message.tags }}">
+                        {{ message|safe }}
+                    </a>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <nav class="navbar"> 
         <div class="out">
             <div class="in one">
-                <a href="{% url 'getdressed'%}">To get dressed</a>
+                <a href="{% url 'getdressed'%}">одягтися</a>
             </div>
             
             <div class="in two">
@@ -29,8 +41,8 @@
                 </a>
             </div>
             <div class="in three">
-                <a href="{% url 'teach'%}">Learn to be creative</a>
-            </div>    
+                <a href="{% url 'teach'%}">навчатися</a>
+            </div>   
         </div>
     </nav>
 </head>

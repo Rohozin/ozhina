@@ -1,20 +1,21 @@
 from django.contrib import admin
-
 from .models import *
+from embed_video.admin import AdminVideoMixin
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
 
+
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['category', 'name_collection', 'slug', 'image','description' ]
+class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
+    list_display = ['category', 'name_collection', 'slug', 'image','video','description','draft' ]
     prepopulated_fields = {'slug': ('name_collection',)}
 
 @admin.register(Imagecollection)
 class ImagecollectionAdmin(admin.ModelAdmin):
-    list_display = ['title','collectionpresent','image']
+    list_display = ['title','collectionpresent','image','money','format_file','time','draft']
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
@@ -26,7 +27,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ['user',
                     'phone_number',
                     'city',
-                    'photo',
+                    'hair',
                     'full_height',
                     'neck_girth',
                     'chest_girth',

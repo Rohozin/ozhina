@@ -5,15 +5,13 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="logdiv">
-        <h1>Create an account</h1>
-        <p>Please, sign up using the following form:</p>
+        <h1>Створити новий акаунт</h1>
+        <p>Використовуйте форми</p>
         <form action="." method="post">
             {{ user_form.as_p }}
             {% csrf_token %}
-            <p><input type="submit" value="Create my account"></p>
+            <p><input type="submit" value="створити"></p>
         </form>
     </div>
-
 {% endblock %}

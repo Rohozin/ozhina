@@ -1,7 +1,17 @@
 .logdiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
     margin-top: 300px;
     margin-bottom: 300px;
     width: 100%;
     height: 200px;
-    background-color: rgb(202, 202, 255);
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow:  0 0 21px 25px rgb(255, 255, 255);
+}
+
+.hh1 {
+    padding-bottom: 30px;
 }

@@ -1,45 +1,27 @@
 
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
 
 .ozhinabig {
     display: flex;
     justify-content: center;
-    margin-top: 291px;
+    padding-top: 291px;
+    padding-bottom: 30%;
+    background-color: rgb(253, 253, 253);
 }
 
-.me {
+
+.tex {
     display: flex;
     justify-content: center;
-    margin-top: 450px;  
+    color: #b6b6b6;
     background-color: black;
-    color: darkmagenta;
-}
-.photo {
-    padding-top: 210px;
-    display: flex;
-    position: static;
-    justify-content: center;
-    color: #444444;
-    width: 20%;
-}
-
-
-.oneph {
-    width: 100%;
 }
 .text {  
     display: flex;
     justify-content: center;
-    padding-left: 600px;
-    padding-right: 600px;
+    width: 600px;
     padding-top: 17px;
-    font-size: 17;
-    color: #9e9e9e;
-    background-color: black;
+    font-size: 15;
+    
 }
 
 .box {

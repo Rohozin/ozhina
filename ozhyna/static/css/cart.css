@@ -1,0 +1,69 @@
+.cartb {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 210px;
+}
+.cartbon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    background-color:rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.cartbok {
+    margin-bottom: 50px;
+}
+
+.cartdel {
+    height: 100%;
+    background-color:rgb(54, 54, 54);
+    color: rgb(0, 0, 0);
+}
+.cartim {
+    width: 30%;
+    height: 30%;
+    background-color:rgb(0, 0, 0);
+}
+.cartinf {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding-left: 11px;
+
+}
+.cartimage {
+    width: 100%;
+}
+.carth {
+    font-size: 31;
+    color: rgb(255, 255, 255);
+}
+.carth2 {
+    font-size: 31;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: rgb(255, 255, 255);
+}
+.carth21 {
+    font-size: 51;
+    color: rgb(255, 255, 255);
+}
+.carth22 {
+    font-size: 21;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(255, 255, 255);
+}
+.cartp1 {
+    font-size: 11;
+    color:rgb(107, 107, 107);
+}
+
+.cartp12 {
+    font-size: 11;
+    color:rgb(255, 0, 0);
+}

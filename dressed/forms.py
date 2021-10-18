@@ -1,9 +1,5 @@
 from django import forms
-
 from django.contrib.auth.models import User
-from django.forms import fields
-
-
 from .models import Profile
 
 # Добавляем дополнительные поля пользователя
@@ -12,8 +8,8 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label='Введіть пароль', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Повторіть пароль', widget=forms.PasswordInput)
     
     class Meta:
         model = User
@@ -28,13 +24,13 @@ class UserRegistrationForm(forms.ModelForm):
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
-
+        fields = ('first_name', 'email')
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('phone_number',
                     'city',
+                    'hair',
                     'full_height',
                     'neck_girth',
                     'chest_girth',
@@ -51,5 +47,4 @@ class ProfileEditForm(forms.ModelForm):
                     'long_waist_knee',
                     'hip_girth',
                     'thigh_girth',
-                    'knee_girth'
-                    )
+                    'knee_girth')

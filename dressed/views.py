@@ -1,15 +1,15 @@
 
-from django.core.exceptions import RequestAborted
-from django.shortcuts import render, get_object_or_404, redirect
-
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm
-from .models import *
+from .models import Category,Product,Imagecollection,Profile,Course
 
 
 # Страницы веб-приложения
@@ -41,20 +41,23 @@ def teach (request):
     return render(request, 'teach.html', {'teach' : teach})
 
 
+
 @login_required
-def addavatar(request):
+def edit(request):
     if request.method == 'POST':
         user_form = UserEditForm(instance=request.user,data=request.POST)
         profile_form = ProfileEditForm(instance=request.user.profile,
-                                        data=request.POST,
-                                        files=request.FILES)
+                                        data=request.POST)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'дані збереженні')
+        else:
+            messages.error(request, 'помилка оновлення ваших данних')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request,'addavatar.html',{'user_form': user_form,'profile_form': profile_form})
+    return render(request,'addavatar.html',{'user_form' : user_form, 'profile_form' : profile_form})
 
 # User
 def user_login(request):
@@ -92,6 +95,6 @@ def register (request):
             return render(request, 'register_done.html', {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
-    return render (request, 'register.html', {'user_form': user_form})
+    return render (request, 'registration/register.html', {'user_form': user_form})
 
             

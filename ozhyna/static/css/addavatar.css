@@ -1,12 +1,33 @@
 
+.addb {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .addform {
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
     padding-top: 10%;
     padding-bottom: 10%;
     width: 100%;
     background-color: rgb(0, 0, 0);
     color: cornsilk;
 }
-
+.add {
+    
+    padding-left: 5%;
+}
+.add1 {
+    margin-left: 5%;
+    padding-left: 5%;
+    background-color: rgb(255, 0, 0);
+}
+.add2 {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
 .addimg {
-    width: 15%;
+    width: 70%;
 }
