@@ -6,8 +6,8 @@
 
 {% block content %}
     <div class="logdiv">
-        <h1>Welcome {{ new_user.first_name }}!</h1>
-        <p>Your account has been successfully created.
-            Now you can <a href="{% url "login" %}">log in</a>.</p>
+        <h1>Вітаю {{ new_user.first_name }}!</h1>
+        <p>Ваш обліковий запис успішно створено.
+            Ви маєте право <a href="{% url "login" %}">увійти</a>.</p>
     </div>
 {% endblock %}

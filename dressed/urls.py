@@ -6,8 +6,8 @@ from django.views.decorators.cache import cache_page
 urlpatterns = [
     path('',views.home, name='home'),
     path('getdressed',views.getdressed, name='getdressed'),
-    path('teach',cache_page(60) (views.teach), name='teach'),
-    path('product',cache_page(60) (views.product), name='product'),
+    path('teach',cache_page(5) (views.teach), name='teach'),
+    path('product',cache_page(5) (views.product), name='product'),
     path('<slug:category_slug>', views.getdressed, name = 'products_by_category'),
     path('<slug:category_slug>/<slug:product_slug>', views.product, name = 'product_detail'),
     path('<slug:teach_slug>', views.teach, name = 'teach'),

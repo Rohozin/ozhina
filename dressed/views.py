@@ -12,11 +12,10 @@ from .models import Category,Product,Imagecollection,Profile,Course
 
 
 # Страницы веб-приложения
-@cache_page(60 * 10)
+@cache_page(60 * 30)
 def home (request):
     return render(request, 'home.html')
 
-@cache_page(60)
 def getdressed (request, category_slug=None):
     category_page = None
     products = None
@@ -30,13 +29,14 @@ def getdressed (request, category_slug=None):
     return render(request, 'getdressed.html', {'category':category_page,
                 'products' : products} )
 
-@cache_page(60)
+
 def product (request, category_slug, product_slug):
     product = Product.objects.get(category__slug=category_slug
             , slug= product_slug, draft=False)
     image = Imagecollection.objects.filter(collectionpresent=product, draft=False)
     return render(request, 'product.html', {'product' : product, 'image' : image})
 
+@cache_page(60 * 15)
 def teach (request):
     teach  = Course.objects.all()
     return render(request, 'teach.html', {'teach' : teach})

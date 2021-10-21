@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
      Увійти
 {% endblock %}
@@ -10,8 +12,8 @@
         {% if form.errors %}
             <p>Ваше ім’я користувача та пароль не збігаються. Повторіть спробу.</p>
         {% else %}
-            <p>Будь ласка, використовуйте наступну форму для входу.
-                Якщо у вас немає облікового запису, <a href="{% url "register" %}">реєстрація тут.</a>
+            <p>Будь ласка, використовуйте наступну форму для входу.</p>
+            <p>Якщо у вас немає облікового запису <a href="{% url "register" %}"><img  src="{% static 'images/reg.svg' %}"></a>
             </p>
         {% endif %}
         <div class="login-form">
@@ -21,7 +23,6 @@
                 <input type="hidden" name="next" value="{{ next }}" />
                 <p><input type="submit" value="Увійти"></p>
             </form>
-            <p><a href="{% url "password_reset" %}">Забули свій пароль?</a></p>
         </div>
     </div>
 {% endblock %}
