@@ -21,9 +21,11 @@
     width: 600px;
     padding-top: 17px;
     font-size: 15;
-    
 }
 
+.textp {
+    font-size: 17;
+}
 .box {
     display: flex;
     justify-content: center;

@@ -1,19 +1,23 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, Order
 
 # Добавляем дополнительные поля пользователя
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username    = forms.CharField()
+    password    = forms.CharField(widget=forms.PasswordInput)
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Введіть пароль', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Повторіть пароль', widget=forms.PasswordInput)
+    password    = forms.CharField(label='Введіть пароль', widget=forms.PasswordInput)
+    password2   = forms.CharField(label='Повторіть пароль', widget=forms.PasswordInput)
     
     class Meta:
-        model = User
-        fields = ('username', 'first_name', 'email')
+        model   = User
+        fields  = (
+                    'username', 
+                    'first_name', 
+                    'email'
+                    )
     
     def clean_password2(self):
         cd = self.cleaned_data
@@ -23,12 +27,16 @@ class UserRegistrationForm(forms.ModelForm):
 
 class UserEditForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ('first_name', 'email')
+        model   = User
+        fields  = (
+                    'first_name',
+                    'email'
+                    )
+
 class ProfileEditForm(forms.ModelForm):
     class Meta:
-        model = Profile
-        fields = ('phone_number',
+        model   = Profile
+        fields  = (
                     'city',
                     'hair',
                     'full_height',
@@ -48,3 +56,15 @@ class ProfileEditForm(forms.ModelForm):
                     'hip_girth',
                     'thigh_girth',
                     'knee_girth')
+
+class OrderEditForm(forms.ModelForm):
+    class Meta:
+        model   = Order
+        fields  = ( 
+                    'name',
+                    'phone_number',
+                    'massege', 
+                    'image',
+                    'cat', 
+                    )
+    

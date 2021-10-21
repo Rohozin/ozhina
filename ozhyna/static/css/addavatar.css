@@ -3,15 +3,15 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    background-color: rgb(7, 0, 37);
 }
 .addform {
     display: flex;
     justify-content: center;
     flex-flow: row nowrap;
-    padding-top: 10%;
+    padding-top: 17%;
     padding-bottom: 10%;
     width: 100%;
-    background-color: rgb(0, 0, 0);
     color: cornsilk;
 }
 .add {
@@ -29,5 +29,9 @@
     padding-bottom: 5%;
 }
 .addimg {
-    width: 70%;
+    width: 60%;
+}
+
+.p2get1 {
+    color: purple;
 }

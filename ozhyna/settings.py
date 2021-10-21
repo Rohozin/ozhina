@@ -147,3 +147,10 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'ozhina_cache'),
+    }
+}

@@ -4,22 +4,26 @@
     color: rgb(85, 85, 85);
     padding-bottom: 30px;
     padding-top: 30px;
-    padding-left: 46%;
+    padding-left: 2%;
 }
 .lead_text {
     font-size: 8;
 }
 .pfooter {
-    
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 1%;
+    padding-right: 1%;
     color: dimgray;
 }
 .ozfooter {
-    padding-right: 30px;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 .ozfter {
     padding-top: 10px;
     padding-bottom: 5px;
     color: floralwhite;
+}
+.ozfim {
+    margin-top: 3%;
+    width: 70%;
 }

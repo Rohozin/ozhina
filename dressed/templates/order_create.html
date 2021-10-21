@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Замовлення
+{% endblock %}
+
+{% block content %}
+<form action="." method="post" enctype="multipart/form-data">
+    <div class="logdiv">
+        <h1 class="hh1">Зробити замовлення</h1>
+        {{ order_form.as_p}}
+        {% csrf_token %}
+        <p>.</p>
+        <p><input type='submit' value='Замовити' /></p>
+    </div>
+ </form>
+{% endblock %}

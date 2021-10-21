@@ -3,20 +3,20 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib import messages
-from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
-from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm
+from django.views.decorators.cache import cache_page
+from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm, OrderEditForm
 from .models import Category,Product,Imagecollection,Profile,Course
 
 
 # Страницы веб-приложения
-
+@cache_page(60 * 10)
 def home (request):
     return render(request, 'home.html')
 
+@cache_page(60)
 def getdressed (request, category_slug=None):
     category_page = None
     products = None
@@ -30,9 +30,10 @@ def getdressed (request, category_slug=None):
     return render(request, 'getdressed.html', {'category':category_page,
                 'products' : products} )
 
+@cache_page(60)
 def product (request, category_slug, product_slug):
     product = Product.objects.get(category__slug=category_slug
-            , slug= product_slug)
+            , slug= product_slug, draft=False)
     image = Imagecollection.objects.filter(collectionpresent=product, draft=False)
     return render(request, 'product.html', {'product' : product, 'image' : image})
 
@@ -58,6 +59,19 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     return render(request,'addavatar.html',{'user_form' : user_form, 'profile_form' : profile_form})
+
+def order_create(request):
+    if request.method == 'POST':
+        order_form = OrderEditForm(data=request.POST,
+                                    files=request.FILES)
+        if order_form.is_valid():
+            order_form.save()
+            messages.success(request, 'вам передзвонять')
+        else:
+            messages.error(request, 'спробуйте ще раз')
+    else:
+        order_form = OrderEditForm ()
+    return render(request,'order_create.html',{'order_form' : order_form})                                   
 
 # User
 def user_login(request):

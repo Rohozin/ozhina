@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
+from django.views.decorators.cache import cache_page
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('getdressed', views.getdressed, name='getdressed'),
-    path('teach', views.teach, name='teach'),
-    path('product',views.product, name='product'),
+    path('',views.home, name='home'),
+    path('getdressed',views.getdressed, name='getdressed'),
+    path('teach',cache_page(60) (views.teach), name='teach'),
+    path('product',cache_page(60) (views.product), name='product'),
     path('<slug:category_slug>', views.getdressed, name = 'products_by_category'),
     path('<slug:category_slug>/<slug:product_slug>', views.product, name = 'product_detail'),
     path('<slug:teach_slug>', views.teach, name = 'teach'),
@@ -21,5 +22,5 @@ urlpatterns = [
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
-    
+    path('order_create/', views.order_create, name='order_create'),
 ]
