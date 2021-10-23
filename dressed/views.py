@@ -41,6 +41,9 @@ def teach (request):
     teach  = Course.objects.all()
     return render(request, 'teach.html', {'teach' : teach})
 
+def political (request):
+    return render(request, 'political.html')
+
 
 
 @login_required

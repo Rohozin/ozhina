@@ -5,9 +5,15 @@
     padding-bottom: 30px;
     padding-top: 30px;
     padding-left: 2%;
+    text-decoration: none;
 }
 .lead_text {
     font-size: 8;
+}
+.polit {
+    color: rgb(85, 85, 85);
+    font-weight: bold;
+    text-decoration: none;
 }
 .pfooter {
     padding-left: 1%;
