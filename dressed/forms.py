@@ -4,20 +4,32 @@ from .models import Profile, Order
 
 # Добавляем дополнительные поля пользователя
 class LoginForm(forms.Form):
-    username    = forms.CharField()
-    password    = forms.CharField(widget=forms.PasswordInput)
+    username    = forms.CharField(label='You username', widget=forms.TimeInput(attrs={'class': 'form-input'}))
+    password    = forms.CharField(label='You password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+
+    class Meta:
+        model   = User
+        fields  = (
+                    'username', 
+                    'password ', 
+                    )
 
 class UserRegistrationForm(forms.ModelForm):
-    password    = forms.CharField(label='Введіть пароль', widget=forms.PasswordInput)
-    password2   = forms.CharField(label='Повторіть пароль', widget=forms.PasswordInput)
+    password    = forms.CharField(label='Enter the password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    password2   = forms.CharField(label='Repeat the password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     
     class Meta:
         model   = User
         fields  = (
                     'username', 
                     'first_name', 
-                    'email'
+                    'email',
                     )
+        widgets = {
+                    'username': forms.TextInput(attrs={'class': 'form-input'}),
+                    'first_name': forms.TextInput(attrs={'class': 'form-input'}),
+                    'email': forms.TextInput(attrs={'class': 'form-input'}),
+                }
     
     def clean_password2(self):
         cd = self.cleaned_data
@@ -32,13 +44,16 @@ class UserEditForm(forms.ModelForm):
                     'first_name',
                     'email'
                     )
+        widgets = {
+                    'first_name': forms.TextInput(attrs={'class': 'form-input'}),
+                    'email' : forms.Textarea(attrs={'class': 'form-input'}),
+                    }  
 
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model   = Profile
         fields  = (
-                    'city',
-                    'hair',
+                    'phone',
                     'full_height',
                     'neck_girth',
                     'chest_girth',
@@ -56,6 +71,26 @@ class ProfileEditForm(forms.ModelForm):
                     'hip_girth',
                     'thigh_girth',
                     'knee_girth')
+        widgets = {
+                    'phone': forms.TextInput(attrs={'class': 'form-input'}),
+                    'full_height': forms.TextInput(attrs={'class': 'form-input'}),
+                    'neck_girth' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'chest_girth' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'chest_height' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'center_chest' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'back_width' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'shoulder_long' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'long_sleeves' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'arm_girth' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'wrist_girth': forms.TextInput(attrs={'class': 'form-input'}),
+                    'waist_circumference' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'length_front_waist' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'long_back_waist' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'long_waist_knee' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'hip_girth': forms.TextInput(attrs={'class': 'form-input'}),
+                    'thigh_girth' : forms.TextInput(attrs={'class': 'form-input'}),
+                    'knee_girth' : forms.TextInput(attrs={'class': 'form-input'}),
+                    }    
 
 class OrderEditForm(forms.ModelForm):
     class Meta:
@@ -67,4 +102,10 @@ class OrderEditForm(forms.ModelForm):
                     'image',
                     'cat', 
                     )
-    
+        widgets = {
+                    'name': forms.TextInput(attrs={'class': 'form-input'}),
+                    'massege' : forms.Textarea(attrs={'cols': 35, 'rows': 5, 'class': 'form-input'}),
+                    'phone_number': forms.TextInput(attrs={'class': 'form-input'}),
+                    'image': forms.FileInput(attrs={'class': 'form-inputon'}),
+                    
+                    }      

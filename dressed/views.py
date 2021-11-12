@@ -12,7 +12,7 @@ from .models import Category,Product,Imagecollection,Profile,Course
 
 
 # Страницы веб-приложения
-@cache_page(60 * 30)
+
 def home (request):
     return render(request, 'home.html')
 
@@ -36,7 +36,7 @@ def product (request, category_slug, product_slug):
     image = Imagecollection.objects.filter(collectionpresent=product, draft=False)
     return render(request, 'product.html', {'product' : product, 'image' : image})
 
-@cache_page(60 * 15)
+
 def teach (request):
     teach  = Course.objects.all()
     return render(request, 'teach.html', {'teach' : teach})
@@ -55,23 +55,24 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'дані збереженні')
+            messages.success(request, 'data storage')
         else:
-            messages.error(request, 'помилка оновлення ваших данних')
+            messages.error(request, 'error updating your data')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     return render(request,'addavatar.html',{'user_form' : user_form, 'profile_form' : profile_form})
 
 def order_create(request):
+
     if request.method == 'POST':
         order_form = OrderEditForm(data=request.POST,
                                     files=request.FILES)
         if order_form.is_valid():
             order_form.save()
-            messages.success(request, 'вам передзвонять')
+            messages.success(request, 'call you back')
         else:
-            messages.error(request, 'спробуйте ще раз')
+            messages.error(request, 'try again')
     else:
         order_form = OrderEditForm ()
     return render(request,'order_create.html',{'order_form' : order_form})                                   
@@ -113,5 +114,4 @@ def register (request):
     else:
         user_form = UserRegistrationForm()
     return render (request, 'registration/register.html', {'user_form': user_form})
-
-            
+# Cart            

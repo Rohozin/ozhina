@@ -1,6 +1,22 @@
 
+.teach {
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    width: 100%;
+    background-color: black;
+}
+
 .teachbox {
-    padding-top: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%;
+    padding-bottom: 31px;
+}
+
+.immind {
+    width: 80%;
 }
 .boxpic{
     display: flex;
@@ -17,38 +33,37 @@
     text-decoration: none;
     font-size: 21;
     font-weight: bold;
-    color: rgb(131, 131, 131);
+    color:rgb(201, 201, 201);
     
 }
 
 .cop {
     font-size: 21;
     font-weight: bold;
-    color:rgb(255, 255, 255);
+    color:rgb(201, 201, 201);
 }
 .copq {
     padding-left: 10px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 51;
+    font-size: 31;
     color:rgb(255, 255, 255);
 }
 .course {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 350px;
     padding-top: 200px;
     padding-bottom: 200px;
     padding-left: 10%;
     padding-right: 10%;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.329);
 }
 
 .boxcourseinf {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding-top: 40px;
@@ -56,14 +71,13 @@
     margin-left: 7px;
     margin-right: 7px;
     width: 460px;
-    height: 700px;
     background-color: rgba(255, 255, 255, 0.623);
 
 }
 
 .boxnar {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-right: 19px;
     margin-top: 21px;
 
@@ -85,7 +99,7 @@
     text-decoration: none;
     font-weight: bold;
     text-shadow: 0px 0px 10px rgb(255, 255, 255);
-    color: rgb(255, 46, 46);
+    color: rgb(46, 255, 91);
 }
 .boxteachab {
     font-size: 15;
@@ -101,9 +115,8 @@
 canvas {
     display: block;
     position: relative;
-    margin-top: 40px;
     width: 100%;
-    height: 1100px;
+    height: 450px;
     z-index: 1;
     background:hsl(0, 0%, 100%);
   }

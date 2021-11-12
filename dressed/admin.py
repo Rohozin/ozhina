@@ -35,7 +35,7 @@ class CourseAdmin(admin.ModelAdmin):
     
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['id','user','city','hair','full_height','neck_girth','chest_girth','chest_height','center_chest','back_width','shoulder_long','long_sleeves','arm_girth','wrist_girth','waist_circumference','length_front_waist','long_back_waist','long_waist_knee','hip_girth','thigh_girth','knee_girth']
+    list_display = ['id','user','phone','full_height','neck_girth','chest_girth','chest_height','center_chest','back_width','shoulder_long','long_sleeves','arm_girth','wrist_girth','waist_circumference','length_front_waist','long_back_waist','long_waist_knee','hip_girth','thigh_girth','knee_girth']
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):

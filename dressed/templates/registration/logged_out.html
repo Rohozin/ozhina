@@ -3,14 +3,16 @@
 {% load static %}
 
 {% block title %}
-    Вийти
+    Go out
 {% endblock %}
 
 {% block content %}
     <div class="logdiv">
-        <h1 class="hh1">Вийти</h1>
-        <p>Ви успішно вийшли.
-            Ви можете <a href="{% url "login" %}"><img  src="{% static 'images/in.svg' %}"></a>.
-        </p>
+        <div class="hh1">
+            <h1 >Go out</h1>
+            <p>You have successfully logged out.
+                You can <a href="{% url "login" %}"><img  src="{% static 'images/in.svg' %}"></a>.
+            </p>
+        </div>
     </div>
 {% endblock %}

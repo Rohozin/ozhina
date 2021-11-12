@@ -7,14 +7,23 @@
     <title>{% block title %} {% endblock %}</title>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/getdressed.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/getdressed_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/prod.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prod_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/addavatar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/addavatar_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/teach.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/teach_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 </body>
 
 <head>
@@ -32,16 +41,16 @@
     <nav class="navbar"> 
         <div class="out">
             <div class="in one">
-                <a href="{% url 'getdressed'%}">одягтися</a>
+                <a href="{% url 'getdressed'%}">CLOTHES</a>
             </div>
             
             <div class="in two">
                 <a href="{% url 'home'%}" class="logo">
-                    <img src="{% static 'images/logo.svg' %}">
+                    <img class="imagelogo" src="{% static 'images/logo.svg' %}">
                 </a>
             </div>
             <div class="in three">
-                <a href="{% url 'teach'%}">навчатися</a>
+                <a href="{% url 'teach'%}">LEARN</a>
             </div>   
         </div>
     </nav>

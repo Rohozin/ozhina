@@ -3,17 +3,22 @@
 {% load static %}
 
 {% block title %}
-    Замовлення
+    Order
 {% endblock %}
 
 {% block content %}
-<form action="." method="post" enctype="multipart/form-data">
-    <div class="logdiv">
-        <h1 class="hh1">Зробити замовлення</h1>
-        {{ order_form.as_p}}
-        {% csrf_token %}
-        <p>.</p>
-        <p><input type='submit' value='Замовити' /></p>
+    <div class="formblock">
+        <form action="." method="post" enctype="multipart/form-data">
+            <div class="formorder">
+                <h1 class="">Make an order</h1>
+                {{ order_form.as_p}}
+                {% csrf_token %}
+                <!--<a><input type='submit' value='Замовити' /></a>-->
+                <button>
+                    <img  src="{% static 'images/create.svg' %}">
+                </button>
+                <p class="orderp">I agree with processing my personal data in accordance with the law of Ukraine.</p>
+            </div>
+        </form>
     </div>
- </form>
 {% endblock %}

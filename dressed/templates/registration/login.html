@@ -3,26 +3,30 @@
 {% load static %}
 
 {% block title %}
-     Увійти
+    Log in
 {% endblock %}
 
 {% block content %}
     <div class="logdiv">
-        <h1 class="hh1">Увійти</h1>
-        {% if form.errors %}
-            <p>Ваше ім’я користувача та пароль не збігаються. Повторіть спробу.</p>
-        {% else %}
-            <p>Будь ласка, використовуйте наступну форму для входу.</p>
-            <p>Якщо у вас немає облікового запису <a href="{% url "register" %}"><img  src="{% static 'images/reg.svg' %}"></a>
-            </p>
-        {% endif %}
-        <div class="login-form">
-            <form action="{% url 'login' %}" method="post">
-                {{ form.as_p }}
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ next }}" />
-                <p><input type="submit" value="Увійти"></p>
-            </form>
+        <div class="hh1">
+            <h1 class="">Log in</h1>
+            {% if form.errors %}
+                <p>Your username and password do not match. Please try again.</p>
+            {% else %}
+                <p>Please use the following login form.</p>
+                <p>If you do not have an account    <a href="{% url "register" %}"><img  src="{% static 'images/reg.svg' %}"></a>
+                </p>
+            {% endif %}
+            <div class="login-form">
+                <form action="{% url 'login' %}" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <button>
+                        <img class='formip' src="{% static 'images/create.svg' %}">
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}

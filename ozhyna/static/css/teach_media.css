@@ -1,0 +1,49 @@
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) { 
+
+    .teach {
+        
+        padding-top: 200px;
+        background-color: black;
+    }
+
+    .immind {
+        width: 100%;
+    }
+    .course { 
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 100px;
+     }
+
+    .boxcourseinf {
+        width: 100%;
+        margin-top: 11px;
+        margin-bottom: 11px;
+    }
+
+ }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) { 
+
+
+    .immind {
+        width: 100%;
+    }
+    .course { 
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        padding-right: 5%;
+     }
+
+    .boxcourseinf {
+        width: 100%;
+        margin-top: 11px;
+        margin-bottom: 11px;
+    }
+
+}

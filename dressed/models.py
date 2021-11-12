@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from embed_video.fields import EmbedVideoField
 
 class Category (models.Model):
-    name = models.CharField(max_length=100, db_index=True,verbose_name='Категорія')
+    name = models.CharField(max_length=100, db_index=True,verbose_name='Category')
     slug = models.SlugField(max_length=100, unique=True)
     class Meta:
             
@@ -26,20 +26,20 @@ class Category (models.Model):
 class Product (models.Model):
     category = models.ForeignKey (Category,
                                     related_name='products' ,
-                                    on_delete=models.CASCADE,verbose_name='Категорія')
+                                    on_delete=models.CASCADE,verbose_name='Category')
     name_collection = models.CharField (max_length=200,
-                                        unique=True,verbose_name='Найменування')
+                                        unique=True,verbose_name='Name')
     slug = models.SlugField (max_length=200,
                                 unique=True)
     image = models.ImageField (upload_to='product',
-                                blank=True,verbose_name='Презентаційне зображення')
+                                blank=True,verbose_name='Presentation image')
     video = EmbedVideoField (blank=True, null=True,)
-    description = models.TextField (blank=True,verbose_name='Опис')
-    draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Сховати')
-    money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Ціна за модель')
+    description = models.TextField (blank=True,verbose_name='Description')
+    draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Hide')
+    money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Price per model')
     format_file = models.TextField (max_length=5,
-                                        blank=True,verbose_name='Формат електронного документу')
-    time = models.TextField (max_length=3, blank=True,verbose_name='Години консультацій за 1 модель')
+                                        blank=True,verbose_name='Electronic document format')
+    time = models.TextField (max_length=3, blank=True,verbose_name='Hours of consultations for 1 model')
     created = models.DateTimeField (auto_now_add=True)
     updated = models.DateTimeField (auto_now=True)
     
@@ -57,14 +57,14 @@ class Product (models.Model):
 
 
 class Imagecollection (models.Model):
-    title = models.CharField (max_length=30,verbose_name= 'Ім*я створювача,сьогоднішня дата ')
+    title = models.CharField (max_length=30,verbose_name= 'Name of the creator and today date')
     collectionpresent = models.ForeignKey (Product, related_name = 'imagecollection', on_delete=models.CASCADE)
-    image = models.ImageField (upload_to='imagecollection/',blank=True,verbose_name='Зображення ветрикального формату 16:9 або квадрат')
-    draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Сховати')
-    money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Ціна за модель')
+    image = models.ImageField (upload_to='imagecollection/',blank=True,verbose_name='vertical 16: 9 or square image')
+    draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Hide')
+    money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Price per model')
     format_file = models.TextField (max_length=5,
-                                        blank=True,verbose_name='Формат електронного документу')
-    time = models.TextField (max_length=3, blank=True,verbose_name='Години консультацій за 1 модель')
+                                        blank=True,verbose_name='Electronic document format')
+    time = models.TextField (max_length=3, blank=True,verbose_name='Hours of consultations for 1 model')
 
     class Meta:
         ordering = ['-title']
@@ -78,25 +78,24 @@ class Imagecollection (models.Model):
 
 class Profile (models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
-    city = models.TextField(max_length=100,blank=True,verbose_name='Ваше місто')
-    hair = models.TextField(max_length=100,blank=True,verbose_name='Колір волосся')
-    full_height = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Повний зріст')
-    neck_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват шиї')                 
-    chest_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват грудей')
-    chest_height = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Висота грудей')
-    center_chest = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Центр грудей')
-    back_width = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Ширина спинки')
-    shoulder_long = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Довжина плеча')
-    long_sleeves = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Довжина рукава')
-    arm_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват руки (плеча)')
-    wrist_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват кисті')
-    waist_circumference = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват талії')
-    length_front_waist = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Довжина переду до талії')
-    long_back_waist = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Довжина спини до талії')
-    long_waist_knee = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Довжина від талії до коліна')
-    hip_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват стегон')
-    thigh_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват стегна')
-    knee_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Обхват коліна')
+    phone = models.TextField (max_length=27, blank=True,verbose_name='Phone')
+    full_height = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Full height')
+    neck_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Neck girth')                 
+    chest_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Chest girth')
+    chest_height = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Chest height')
+    center_chest = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='The center of the chest')
+    back_width = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Back width')
+    shoulder_long = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Shoulder length')
+    long_sleeves = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Sleeve length')
+    arm_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Forearm girth')
+    wrist_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Brush girth')
+    waist_circumference = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Waist circumference')
+    length_front_waist = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Length in front to the waist')
+    long_back_waist = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='The length of the back to the waist')
+    long_waist_knee = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Length from waist to knee')
+    hip_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Thigh circumference')
+    thigh_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Scope tightened')
+    knee_girth = models.DecimalField(max_digits=10, decimal_places=1,blank=True, null=True,verbose_name='Knee girth')
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
@@ -105,49 +104,51 @@ class Order (models.Model):
     name        = models.TextField  (max_length=50,
                                         blank=True,
                                         null=True,
-                                        verbose_name='Ім`я')
+                                        verbose_name='Name')
     
-    phone_number = models.CharField (max_length=25,blank=True, null=True,
-                                        verbose_name='Контактний номер')
+    phone_number = models.CharField (max_length=25,
+                                        blank=True, 
+                                        null=True,
+                                        verbose_name='Phone number')
     image       = models.ImageField (upload_to='order/',
                                         blank=True,
-                                        verbose_name='Завантажте зображення')
-    massege     = models.TextField(max_length=1000,
+                                        verbose_name='Download image')
+    massege     = models.TextField (max_length=1000,
                                         blank=True,
                                         null=True,
-                                        verbose_name='Доповнення')
+                                        verbose_name='Addition')
     created     = models.DateTimeField (auto_now_add=True)
     cat         = models.ForeignKey (Category,
-                                    on_delete=models.CASCADE,verbose_name='Категорія')
+                                        on_delete=models.CASCADE,verbose_name='Clothing category')
     
     def __str__(self):
         return self.name        
 
 
 class Course (models.Model):
-    name            = models.CharField(max_length=50,verbose_name='Наіменування курсу')
+    name            = models.CharField(max_length=50,verbose_name='Name of the course')
     slug            = models.SlugField(max_length=50,
                                         unique=True)
-    about           = models.TextField(max_length=500,verbose_name='Опис')
+    about           = models.TextField(max_length=500,verbose_name='Description')
     image           = models.ImageField(upload_to="course",
                                         blank=True,
-                                        verbose_name='Презентаційне зображення')
+                                        verbose_name='Presentation image')
     lessons_circle  = models.DecimalField(max_digits=10, 
                                         decimal_places=1,
-                                        verbose_name='Занять у 1 курсі')
+                                        verbose_name='Classes in 1 course')
     #Цыклы занятий
     circle          = models.DecimalField(max_digits=10,
                                         decimal_places=1,
-                                        verbose_name='Кількість курсів')
+                                        verbose_name='Number of courses')
     #Количество часов
     time            = models.TextField(max_length=51,
-                                        verbose_name='Годин на 1 день')
+                                        verbose_name='Hours for 1 day')
     online          = models.TextField(max_length=10,
                                         blank=True,
-                                        verbose_name='Онлайн')
+                                        verbose_name='Online')
     alive           = models.TextField(max_length=10,
                                         blank=True,
-                                        verbose_name='Зустрічи')
+                                        verbose_name='Meetings')
 
     class Meta:   
         ordering = ('name',)

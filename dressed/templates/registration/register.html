@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
     Register
 {% endblock %}
 
 {% block content %}
     <div class="logdiv">
-        <h1>Створити новий акаунт</h1>
-        <p>Використовуйте форми</p>
-        <form action="." method="post">
-            {{ user_form.as_p }}
-            {% csrf_token %}
-            <p><input type="submit" value="створити"></p>
-        </form>
+        <div class='hh1'>
+            <h1>Create a new account</h1>
+            <p>Use forms</p>
+            <form action="." method="post">
+                {{ user_form.as_p }}
+                {% csrf_token %}
+                    <button>
+                        <img class='formip' src="{% static 'images/create.svg' %}">
+                    </button>
+            </form>
+        </div>
     </div>
 {% endblock %}

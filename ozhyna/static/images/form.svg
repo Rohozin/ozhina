@@ -1,8 +1,9 @@
-<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 11L18 33" stroke="white" stroke-width="2"/>
-<path d="M23 11L23 33" stroke="white" stroke-width="2"/>
-<path d="M28.0006 0.226497L22.227 5.99991L28.0004 11.7735L33.774 6.00009L28.0006 0.226497ZM27.9999 44.7735L33.7735 39.0001L28.0001 33.2265L22.2265 38.9999L27.9999 44.7735ZM27.0005 5.99998L27 39L29 39L29.0005 6.00002L27.0005 5.99998Z" fill="white"/>
-<path d="M32 21L13 21" stroke="white" stroke-width="2"/>
-<path d="M44.7735 16L39 10.2265L33.2265 16L39 21.7735L44.7735 16ZM0.226496 16L6 21.7735L11.7735 16L6 10.2265L0.226496 16ZM39 15L22.5 15L22.5 17L39 17L39 15ZM22.5 15L6 15L6 17L22.5 17L22.5 15Z" fill="white"/>
-<path d="M32 26L13 26" stroke="white" stroke-width="2"/>
+<svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M27 23L27 45" stroke="white" stroke-width="2"/>
+<path d="M32 23L32 45" stroke="white" stroke-width="2"/>
+<path d="M37.0006 12.2265L31.227 17.9999L37.0004 23.7735L42.774 18.0001L37.0006 12.2265ZM36.9999 56.7735L42.7735 51.0001L37.0001 45.2265L31.2265 50.9999L36.9999 56.7735ZM36.0005 18L36 51L38 51L38.0005 18L36.0005 18Z" fill="white"/>
+<path d="M41 33L22 33" stroke="white" stroke-width="2"/>
+<path d="M53.7735 28L48 22.2265L42.2265 28L48 33.7735L53.7735 28ZM9.2265 28L15 33.7735L20.7735 28L15 22.2265L9.2265 28ZM48 27L31.5 27L31.5 29L48 29L48 27ZM31.5 27L15 27L15 29L31.5 29L31.5 27Z" fill="white"/>
+<path d="M41 38H22" stroke="white" stroke-width="2"/>
+<circle cx="33" cy="33" r="30.5" stroke="white" stroke-width="5"/>
 </svg>

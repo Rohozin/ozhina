@@ -1,0 +1,54 @@
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+    nav {
+        margin-top:10px;
+        z-index: 2;
+        width: 100%;
+        height: 65px;
+        background: rgba(194, 194, 194, 0.082);
+        box-shadow: 0 1px 11px 0 rgba(75, 75, 75, 0.103);
+        backdrop-filter: blur( 9.5px );
+    }
+    .out{
+        
+        font-size: 15;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    
+    nav {
+        width: 100%;
+        margin-top:10px;
+        height: 65px;
+        background: rgba(194, 194, 194, 0.082);
+        box-shadow: 0 1px 11px 0 rgba(75, 75, 75, 0.103);
+        backdrop-filter: blur( 9.5px );
+
+    }
+
+    .out{
+
+        font-size: 11;
+    }
+
+    .message {
+        display: flex;
+        justify-content: center;
+        font-size: 11;
+        color: rgb(105, 105, 105);
+    }
+
+    .one>a{
+        margin-right: 1px;
+        color: #dddddd85;
+    }
+    .three>a{
+        margin-left: 1px;
+        color: #dddddd85;
+    }
+
+}

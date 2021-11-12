@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(7, 0, 37);
+    background-color: rgb(0, 0, 0);
 }
 .addform {
     display: flex;
@@ -11,6 +11,8 @@
     flex-flow: row nowrap;
     padding-top: 17%;
     padding-bottom: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     width: 100%;
     color: cornsilk;
 }
@@ -19,11 +21,14 @@
     padding-left: 5%;
 }
 .add1 {
+    width: 100%;
     margin-left: 5%;
     padding-left: 5%;
-    background-color: rgb(255, 0, 0);
+
 }
 .add2 {
+    
+    width: 100%;
     padding-top: 5%;
     padding-left: 5%;
     padding-bottom: 5%;
@@ -33,5 +38,5 @@
 }
 
 .p2get1 {
-    color: purple;
+    color: rgb(102, 102, 102);
 }

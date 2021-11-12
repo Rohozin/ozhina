@@ -5,21 +5,28 @@
     justify-content: center;
     padding-top: 291px;
     padding-bottom: 30%;
+    width: 100%;
     background-color: rgb(253, 253, 253);
 }
 
+.texblock {
+    background-color: rgb(255, 255, 255);
+    padding-top: 20%;
+}
 
 .tex {
     display: flex;
     justify-content: center;
-    color: #b6b6b6;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgb(21, 0, 26);
+    text-shadow: 10px 0px 30px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);
 }
 .text {  
     display: flex;
     justify-content: center;
     width: 600px;
     padding-top: 17px;
+    padding-bottom: 20%;
     font-size: 15;
 }
 
@@ -32,7 +39,6 @@
     padding-top: 110px;
     padding-left: 351px;
     padding-right: 351px;
-    padding-bottom: 210px;
-    background-color: black;
+    background-color: rgb(21, 0, 26);
     color: cornsilk;
 }

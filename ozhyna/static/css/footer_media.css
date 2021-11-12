@@ -1,0 +1,37 @@
+    
+    
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+    .ozhinafooter {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10%;
+    }
+
+    .lead_text {
+        font-size: 8;
+    }
+    .polit {
+        color: rgb(32, 31, 37);
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .pfooter {
+        padding-top: 3%;
+        padding-bottom: 3%;
+        color: rgb(32, 31, 37);
+    }
+    .ozfooter {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+    .ozfter {
+        padding-top: 3%;
+        color: floralwhite;
+        text-shadow: 0px 0px 20px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);
+    }
+    .ozfim {
+        width: 35%;
+    }
+}

@@ -15,7 +15,6 @@
                 <h1 class="prodboxon">{{ product.name_collection }}</h1>
                 <p class="prodboxtwo">{{ product.category }}</p>
             </div>
-            
             <div class="gdimgctproduct">
                 <div class="ctproduct">
                     <div class="gridbuttonon"></div>
@@ -31,13 +30,13 @@
             </div>
             <div class="prodboxthree">
                 <div class="prodboxthr">
-                    {% video product.video '100% x 520' %}
+                    {% video product.video '100% x 250' %}
                     <div class="prodboxinfo">
                         <div class="prodboxinfon">
-                            <p class="prodboxfor">Кошторис за 1 модель грн.  <a class="sphr1">{{ product.money }}</a></p>
-                            <p class="prodboxfor">Консультаційних годин     <a class="sphr1">{{ product.time }}</a></p>
-                            <p class="prodboxfor">Формат документу для відшивання <a class="sphr1">{{ product.format_file }}</a></p>
-                            <p class="prodboxfor">Завантажте зображення перед замовленням </p>
+                            <p class="prodboxfor">$ <a class="sphr1">{{ product.money }}</a></p>
+                            <p class="prodboxfor">Consultation hours <a class="sphr1">{{ product.time }}</a></p>
+                            <p class="prodboxfor">Сlothing patterns <a class="sphr1">{{ product.format_file }}</a></p>
+                            <p class="prodboxfor">Upload images before ordering </p>
                             <div class="userblock1">
                                 <div class="glow-on-hover" >
                                     <a href="{% url "order_create" %}"> <img  src="{% static 'images/form.svg' %}"> </a>
@@ -47,9 +46,8 @@
                         <div class="prodbox1">
                             <h1 class="prodboxon1">{{ product.name_collection }}</h1>
                             <p class="prodboxtwo">{{ product.category }}</p>
-                            <p class="prodboxfor">{{ product.description }}</p>
+                            <p class="prodboxfive">{{ product.description }}</p>
                         </div>
-                        
                     </div>
                 </div>
             </div> 
