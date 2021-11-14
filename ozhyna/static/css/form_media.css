@@ -46,18 +46,20 @@
 }
 @media(max-width: 300px){
     .formblock {
+        width: 100px;
         padding-left: 3%;
         padding-right: 3%;
     }
 
     .formorder {
+        width: 100px;
         padding-left: 2%;
         padding-right: 2%;
-        width: 220px;
     
     }
 
     .form-input{
+        width: 100px;
         padding-left: 10%;
         padding-right: 10%;
         width: 100%;

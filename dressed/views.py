@@ -114,4 +114,3 @@ def register (request):
     else:
         user_form = UserRegistrationForm()
     return render (request, 'registration/register.html', {'user_form': user_form})
-# Cart            

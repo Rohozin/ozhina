@@ -116,7 +116,7 @@ class Order (models.Model):
     massege     = models.TextField (max_length=1000,
                                         blank=True,
                                         null=True,
-                                        verbose_name='Addition')
+                                        verbose_name='Your wishes')
     created     = models.DateTimeField (auto_now_add=True)
     cat         = models.ForeignKey (Category,
                                         on_delete=models.CASCADE,verbose_name='Clothing category')

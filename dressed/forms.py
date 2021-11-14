@@ -107,5 +107,5 @@ class OrderEditForm(forms.ModelForm):
                     'massege' : forms.Textarea(attrs={'cols': 35, 'rows': 5, 'class': 'form-input'}),
                     'phone_number': forms.TextInput(attrs={'class': 'form-input'}),
                     'image': forms.FileInput(attrs={'class': 'form-inputon'}),
-                    
+                    'cat': forms.Select(attrs={'class': 'form-inputon'}),
                     }      
