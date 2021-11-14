@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(110, 128, 155);
 }
 .addform {
     display: flex;
@@ -38,5 +38,15 @@
 }
 
 .p2get1 {
-    color: rgb(102, 102, 102);
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+.avah2get {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
+    color: ghostwhite;
+    text-shadow: 0px 0px 20px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);;
 }

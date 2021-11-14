@@ -48,4 +48,12 @@
     .addimg {
         width: 100%;
     }
+    .avah2get {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3%;
+        color: ghostwhite;
+        font-size: 25;
+        text-shadow: 0px 0px 20px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);;
+    }
 }
