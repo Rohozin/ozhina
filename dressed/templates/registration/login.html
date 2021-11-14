@@ -15,10 +15,10 @@
                 <form action="{% url 'login' %}" method="post">
                     {{ form.non_field_errors }}
                             {{ form.username.errors }}
-                            <a class="login" for="{{ form.username.id_for_label }}">Username</a>
+                            <a  for="{{ form.username.id_for_label }}">Username:</a>
                             <a class="form-input">{{ form.username }}</a>
                             {{ form.password.errors }}
-                            <a class="login" for="{{ form.password.id_for_label }}">Password</a>
+                            <a  for="{{ form.password.id_for_label }}">Password:</a>
                             <a class="form-input">{{ form.password }}</a>
                     {% csrf_token %}
                     

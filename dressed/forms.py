@@ -50,7 +50,7 @@ class UserEditForm(forms.ModelForm):
                     )
         widgets = {
                     'first_name': forms.TextInput(attrs={'class': 'form-input'}),
-                    'email' : forms.Textarea(attrs={'class': 'form-input'}),
+                    'email' : forms.TextInput(attrs={'class': 'form-input'}),
                     }  
 
 class ProfileEditForm(forms.ModelForm):
