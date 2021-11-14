@@ -9,17 +9,11 @@
 {% block content %}
     <div class="logdiv">
         <div class="hh1">
-            <h1 class="">Log in</h1>
-            {% if form.errors %}
-                <p>Your username and password do not match. Please try again.</p>
-            {% else %}
-                <p>Please use the following login form.</p>
-                <p>If you do not have an account    <a href="{% url "register" %}"><img  src="{% static 'images/reg.svg' %}"></a>
-                </p>
-            {% endif %}
+            <h1 class="login">Log in</h1>
+            
             <div class="login-form">
                 <form action="{% url 'login' %}" method="post">
-                    {{ form.as_p }}
+                    {{ form.as_table }}
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next }}" />
                     <button>
@@ -27,6 +21,14 @@
                     </button>
                 </form>
             </div>
+            {% if form.errors %}
+                <p>Your username and password do not match. Please try again.</p>
+            {% else %}
+                <p>Please use the following login form.</p>
+                <p>If you do not have an account </p> 
+                <a class="apply" href="{% url "register" %}"><img  src="{% static 'images/reg.svg' %}"></a>
+                
+            {% endif %}
         </div>
     </div>
 {% endblock %}

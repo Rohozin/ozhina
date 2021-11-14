@@ -6,6 +6,12 @@
     background-color: rgb(16, 31, 0);
 }
 
+.login {
+    font-size: 31;
+    color: black;
+    padding-top: 5%;
+    padding-bottom: 15%;
+}
 .hh1 {
     display: flex;
     flex-direction: column;

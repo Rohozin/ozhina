@@ -12,7 +12,7 @@
             <h1>Create a new account</h1>
             <p>Use forms</p>
             <form action="." method="post">
-                {{ user_form.as_p }}
+                {{ user_form.as_table }}
                 {% csrf_token %}
                     <button>
                         <a class="apply"> apply </a>

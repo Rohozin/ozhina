@@ -2,10 +2,10 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Profile, Order
 
-# Добавляем дополнительные поля пользователя
+
 class LoginForm(forms.Form):
-    username    = forms.CharField(label='You username', widget=forms.TimeInput(attrs={'class': 'form-input'}))
-    password    = forms.CharField(label='You password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    username    = forms.CharField(label='You username')
+    password    = forms.CharField(label='You password')
 
     class Meta:
         model   = User
@@ -13,6 +13,10 @@ class LoginForm(forms.Form):
                     'username', 
                     'password ', 
                     )
+        widgets = {
+                    'username': forms.TextInput(attrs={'class': 'form-input'}),
+                    'password ': forms.TextInput(attrs={'class': 'form-input'}),
+                }
 
 class UserRegistrationForm(forms.ModelForm):
     password    = forms.CharField(label='Enter the password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
