@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Profile, Order
+from .models import Profile, Order, Category
 
 
 class LoginForm(forms.Form):
@@ -97,6 +97,8 @@ class ProfileEditForm(forms.ModelForm):
                     }    
 
 class OrderEditForm(forms.ModelForm):
+    cat = forms.ModelChoiceField(queryset=Category.objects.all(),empty_label='Select a category',widget=forms.Select(attrs={'class': 'form-inputtwo'}))
+    
     class Meta:
         model   = Order
         fields  = ( 
@@ -111,5 +113,5 @@ class OrderEditForm(forms.ModelForm):
                     'massege' : forms.Textarea(attrs={'cols': 35, 'rows': 5, 'class': 'form-input'}),
                     'phone_number': forms.TextInput(attrs={'class': 'form-input'}),
                     'image': forms.FileInput(attrs={'class': 'form-inputon'}),
-                    'cat': forms.Select(attrs={'class': 'form-inputon'}),
+                    
                     }      
