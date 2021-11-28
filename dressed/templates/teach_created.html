@@ -3,23 +3,22 @@
 {% load static %}
 
 {% block title %}
-    Register
+    Order
 {% endblock %}
 
 {% block content %}
-    <div class="logdiv">
-        <div class='hh1'>
-            <h1>Create a new account</h1>
-            <p>Use forms</p>
-            <form action="." method="post">
-                {{ user_form.as_table }}
+    <div class="formblockteach">
+        <form action="." method="post">
+            <div class="formorder">
+                <h1 class="headingform">Study</h1>
+                {{ teach_form.as_p}}
                 {% csrf_token %}
                 <div class='centerbut'>
                     <button>
                         <a class="apply"> apply </a>
                     </button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 {% endblock %}

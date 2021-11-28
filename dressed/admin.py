@@ -8,6 +8,10 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
 
+@admin.register(Presentation)
+class PresentationAdmin(admin.ModelAdmin):
+    list_display = ['name', 'video', 'about']
+
 
 @admin.register(Product)
 class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
@@ -21,7 +25,7 @@ class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 @admin.register(Imagecollection)
 class ImagecollectionAdmin(admin.ModelAdmin):
-    list_display = ['id','title','collectionpresent','miniimage','money','format_file','time','draft']
+    list_display = ['id','title','collectionpresent','miniimage','money','clothesmodel','format_file','time','draft']
 
     def miniimage(self, object):
         if object.image:
@@ -30,8 +34,17 @@ class ImagecollectionAdmin(admin.ModelAdmin):
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['name','about','image', 'lessons_circle', 'circle', 'time']
+    list_display = ['name','slug','about','money','image','online','alive']
     prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(Imagecourse)
+class Imagecourse(admin.ModelAdmin):
+    list_display = ['id','miniimage','course','created']
+
+    def miniimage(self, object):
+        if object.image:
+            return mark_safe(f"<img src='{object.image.url}' width=90")
+    miniimage.__name__ = "Міні-зображення"
     
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -39,9 +52,13 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id','name','phone_number','massege', 'miniimage','cat']
+    list_display = ['id','name','phone_number','massege', 'miniimage','cat','agreement']
 
     def miniimage(self, object):
         if object.image:
             return mark_safe(f"<img src='{object.image.url}' width=90")
     miniimage.__name__ = "Міні-зображення"
+
+@admin.register(OrderTeach)
+class FormTeachAdmin(admin.ModelAdmin):
+    list_display = ['name','phone_number','massege','created','course','agreement']

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load embed_video_tags %}
+
 {% load static %}
 
 {% block title %}
@@ -57,21 +59,28 @@
                 </div>
             </div>
             <div class="create">
+                {% for pres in present %}
                 <div class="createon">
-                    <h2 class="h2get">1 етап. Створення у віртуальній майстерні</h2>
-                    <p class="p2get">- безкоштовний віртуальний аватар за параметрами вашого тіла<br>
-                    - віртуальний одяг за параметрами вашого аватару<br>
-                    - створена персональна конструкторська база данних лекал для відшивання одягу<br>
-                    - реалістична віртуальна модель поведінки одягу на тілі,ступінь прилягання до тіла<br>
-                    - створена анімація ваших повсякденних рухів, спостерігання поведінки одягу для забеспечення комфорту (кроки,біг,вправи), або який Ви матимете вигляд на фотосессії<br>
-                    - ви матимете власний кабінет у якому буде знаходитись створенний одяг, та змодельовані сцени<br>
+                    <h2 class="h2get">{{pres.name}}</h2>
+                    {% video pres.video '100% x 250' %}
+                    <p class="p2get">{{pres.about}}</p>
+                </div>
+                {% endfor %}
+                <div class="createon">
+                    <h2 class="h2get">1 stеp. Creating in a virtual workshop:</h2>
+                    <p class="p2get">- a free virtual avatar according to the parameters of your body <br>
+                    - virtual clothes according to the parameters of your avatar<br>
+                    - created a personal design base of patterns for sewing clothes<br>
+                    - realistic virtual model of clothing behavior on the body, the degree of fit to the body<br>
+                    - animation of your daily movements, observation of clothing behavior to ensure comfort (steps, running, exercises), or how you will look at a photo shoot <br>
+                    - you will have your own place, where clothes will be created and scenes will be imitated<br>
                     </p>
                 </div>
                 <div class="createon">
-                    <h2 class="h2get">2 етап. Відшиваємо</h2>
-                    <p class="p2get">- за лекалами створеного аватару<br>
-                    - обираємо разом тканини<br>
-                    - слідкуйте за поетапним технологічним процесом</p>
+                    <h2 class="h2get">Step 2. We sew:</h2>
+                    <p class="p2get">- according to the patterns of the created avatar<br>
+                    - we choose fabrics together <br>
+                    - follow the step-by-step technological process</p>
                 </div>
             </div>
         </section>

@@ -4,7 +4,15 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    background-color: rgb(16, 31, 0);
+    background-color: rgb(191, 198, 255);
+}
+
+.formblockteach {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(191, 255, 200);
 }
 
 .formorder {
@@ -16,46 +24,71 @@
     margin-bottom: 300px;
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
     width: 100%;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     box-shadow:  0 0 21px 15px rgb(255, 255, 255);
     border-radius: 10px;
 }
+
+
 .form-input{
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 36);
     box-shadow: 0 -5px 31px 5px rgb(198, 194, 255);
     width: 100%;
     height: 100px;
-    color: rgb(255, 255, 255);
+    color: rgb(173, 178, 255);
     margin-top: 3%;
     margin-bottom: 3%;
     font-size: 21;
-    border-radius: 10px;
-    text-shadow: 0px 0px 20px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);;
-
+    border-radius: 10px;  
 }
-
+.form-inputteach{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(0, 34, 2);
+    box-shadow: 0 -5px 31px 5px rgb(194, 255, 202);
+    width: 100%;
+    height: 100px;
+    color: rgb(161, 255, 161);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 21;
+    border-radius: 10px;  
+}
 .form-inputtwo{
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 36);
     box-shadow: 0 -5px 31px 5px rgb(198, 194, 255);
     width: 100%;
-    color: rgb(255, 255, 255);
-    margin-top: 3%;
-    margin-bottom: 3%;
+    color: rgb(173, 178, 255);
+    margin-top: 10%;
+    margin-bottom: 5%;
     font-size: 21;
     border-radius: 10px;
-
+}
+.form-inputtwoteach{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(0, 34, 2);
+    box-shadow: 0 -5px 31px 5px rgb(194, 255, 202);
+    width: 100%;
+    color: rgb(144, 255, 153);
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-size: 21;
+    border-radius: 10px;
 }
 
 .form-inputon{
@@ -63,7 +96,7 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 36);
     box-shadow: 0 -5px 31px 5px rgb(198, 194, 255);
     width: 100%;
     color: rgb(255, 255, 255);
@@ -93,30 +126,41 @@
     padding-bottom: 20px;
     color: blue;
 }
-
-button{
-    margin-top: 50px;
-    margin-bottom: 50px;
+.centerbut {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 100px;
-    background-color: black;
-    border: 0px black solid;
-    border-radius: 10px;
+    height: 300px;
+    
 }
-.apply {
+button{
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    text-decoration: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0 0px 31px 3px rgb(255, 0, 0);
+    border-radius: 100%;
+}
+.apply {
+    
     width: 100%;
     color: rgb(255, 255, 255);
     margin-top: 3%;
     margin-bottom: 3%;
-    font-size: 17;
+    font-size: 21;
 }
 
 .orderp {
     margin-top: 11px;
-    font-size: 9;
+    font-size: 13;
+}
+
+.headingform {
+    margin-top: 20px;
+    margin-bottom: 50px;
 }

@@ -4,6 +4,11 @@
         padding-left: 10%;
         padding-right: 10%;
     }
+    .formblockteach {
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 
     .formorder {
         margin-top: 130px;
@@ -29,11 +34,15 @@
         padding-left: 3%;
         padding-right: 3%;
     }
+    .formblockteach {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
 
     .formorder {
         padding-left: 5%;
         padding-right: 5%;
-        width: 270px;
+        width: 100%;
     
     }
 
@@ -42,24 +51,33 @@
         padding-right: 10%;
         width: 100%;
     }  
-
+    button{
+        
+        margin-top: 40%;
+        
+    }
 }
 @media(max-width: 300px){
     .formblock {
-        width: 100px;
+        width: 100%;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .formblockteach {
+        width: 100%;
         padding-left: 3%;
         padding-right: 3%;
     }
 
     .formorder {
-        width: 100px;
+        width: 250px;
         padding-left: 2%;
         padding-right: 2%;
     
     }
 
     .form-input{
-        width: 100px;
+        width: 100%;
         padding-left: 10%;
         padding-right: 10%;
         width: 100%;

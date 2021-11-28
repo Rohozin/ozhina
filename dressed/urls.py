@@ -6,11 +6,10 @@ from django.views.decorators.cache import cache_page
 urlpatterns = [
     path('',views.home, name='home'),
     path('getdressed',views.getdressed, name='getdressed'),
-    path('teach',cache_page(5) (views.teach), name='teach'),
-    path('product',cache_page(5) (views.product), name='product'),
+    path('product',views.product, name='product'),
+    path('teach', views.teach, name='teach'),
     path('<slug:category_slug>', views.getdressed, name = 'products_by_category'),
     path('<slug:category_slug>/<slug:product_slug>', views.product, name = 'product_detail'),
-    path('<slug:teach_slug>', views.teach, name = 'teach'),
     path('account/login/', views.user_login, name='login'),
     path('edit/', views.edit, name='edit'),
     path('register/', views.register, name='register'),
@@ -22,6 +21,7 @@ urlpatterns = [
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
+    path('teach_created/', views.teach_created, name='teach_created'),
     path('order_create/', views.order_create, name='order_create'),
     path('political/', views.political, name='political'),
 ]

@@ -10,11 +10,21 @@
 }
 
 .texblock {
-    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    background-color: rgb(36, 0, 53);
     padding-top: 20%;
 }
 
 .tex {
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 26);
+    box-shadow: 10px 0px 30px rgb(0, 0, 26),0 0 0.6em rgb(0, 0, 26);
+    text-shadow: 10px 0px 30px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);
+}
+.texpolitical {
     display: flex;
     justify-content: center;
     color: rgb(255, 255, 255);
@@ -24,14 +34,17 @@
 .text {  
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 600px;
     padding-top: 17px;
     padding-bottom: 20%;
     font-size: 15;
 }
 
-.textp {
+.politicaltextp {
     font-size: 17;
+    color: rgb(255, 255, 255);
+    text-shadow: 10px 0px 30px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);
 }
 .box {
     display: flex;

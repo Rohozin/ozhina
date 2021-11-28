@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Profile, Order, Category
+from .models import Course, Profile, Order, Category, OrderTeach
 
 
 class LoginForm(forms.Form):
@@ -12,7 +12,7 @@ class LoginForm(forms.Form):
         fields  = (
                     'username', 
                     'password ', 
-                    )
+                )
         widgets = {
                     'username': forms.TextInput(attrs={'class': 'form-input'}),
                     'password ': forms.TextInput(attrs={'class': 'form-input'}),
@@ -28,7 +28,7 @@ class UserRegistrationForm(forms.ModelForm):
                     'username', 
                     'first_name', 
                     'email',
-                    )
+                )
         widgets = {
                     'username': forms.TextInput(attrs={'class': 'form-input'}),
                     'first_name': forms.TextInput(attrs={'class': 'form-input'}),
@@ -47,11 +47,11 @@ class UserEditForm(forms.ModelForm):
         fields  = (
                     'first_name',
                     'email'
-                    )
+                )
         widgets = {
                     'first_name': forms.TextInput(attrs={'class': 'form-input'}),
                     'email' : forms.TextInput(attrs={'class': 'form-input'}),
-                    }  
+                }  
 
 class ProfileEditForm(forms.ModelForm):
     class Meta:
@@ -74,7 +74,8 @@ class ProfileEditForm(forms.ModelForm):
                     'long_waist_knee',
                     'hip_girth',
                     'thigh_girth',
-                    'knee_girth')
+                    'knee_girth'
+                )
         widgets = {
                     'phone': forms.TextInput(attrs={'class': 'form-input'}),
                     'full_height': forms.TextInput(attrs={'class': 'form-input'}),
@@ -94,7 +95,7 @@ class ProfileEditForm(forms.ModelForm):
                     'hip_girth': forms.TextInput(attrs={'class': 'form-input'}),
                     'thigh_girth' : forms.TextInput(attrs={'class': 'form-input'}),
                     'knee_girth' : forms.TextInput(attrs={'class': 'form-input'}),
-                    }    
+                }    
 
 class OrderEditForm(forms.ModelForm):
     cat = forms.ModelChoiceField(queryset=Category.objects.all(),empty_label='Select a category',widget=forms.Select(attrs={'class': 'form-inputtwo'}))
@@ -106,12 +107,31 @@ class OrderEditForm(forms.ModelForm):
                     'phone_number',
                     'massege', 
                     'image',
-                    'cat', 
-                    )
+                    'cat',
+                    'agreement', 
+                )
         widgets = {
                     'name': forms.TextInput(attrs={'class': 'form-input'}),
                     'massege' : forms.Textarea(attrs={'cols': 35, 'rows': 5, 'class': 'form-input'}),
                     'phone_number': forms.TextInput(attrs={'class': 'form-input'}),
                     'image': forms.FileInput(attrs={'class': 'form-inputon'}),
-                    
-                    }      
+                }      
+
+class OrderFormTeach(forms.ModelForm):
+
+    course = forms.ModelChoiceField(queryset=Course.objects.all(),empty_label='Select a category',widget=forms.Select(attrs={'class': 'form-inputtwoteach'}))
+    
+    class Meta:
+        model   = OrderTeach
+        fields  = (
+                    'name',
+                    'phone_number',
+                    'massege',
+                    'course',
+                    'agreement',
+                )
+        widgets = {
+                    'name': forms.TextInput(attrs={'class': 'form-inputteach'}),
+                    'phone_number': forms.TextInput(attrs={'class': 'form-inputteach'}),
+                    'massege' : forms.Textarea(attrs={'cols': 35, 'rows': 5, 'class': 'form-inputteach'}),
+                }

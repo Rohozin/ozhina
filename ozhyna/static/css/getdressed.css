@@ -11,8 +11,8 @@
     justify-content: center;
     color: rgb(104, 104, 104);
     display: flex;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0px 10px 20px rgb(0, 0, 0);
+    background-color: rgb(11, 0, 19);
+    box-shadow: 10px 10px 20px rgb(10, 0, 14);
     
 }
 
@@ -75,7 +75,7 @@
 
 .glow-on-hover:before {
     content: '';
-    background: linear-gradient(45deg,#ff0000, #ff0000,#ffdcc0, #ff7300, #fffb00, #48ff00,#c3f1ff, #00ffd5, #002bff,#ced6ff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg,#ff0000, #ff0000,#ffdcc0, #ff7300, #fffb00,#ffffff, #48ff00,#ffffff, #c3f1ff, #00ffd5, #002bff, #a200ff, #ff00c8, #ff0000);
     position: absolute;
     background-size: 600%;
     z-index: -1;

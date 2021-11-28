@@ -1,14 +1,15 @@
 
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import redirect, render, get_object_or_404
+from django.http import HttpResponse, request
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.views.decorators.cache import cache_page
-from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm, OrderEditForm
-from .models import Category,Product,Imagecollection,Profile,Course
+from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm, OrderEditForm, OrderFormTeach
+from .models import Category,Presentation,Product,Imagecollection,Profile,Course,Imagecourse,OrderTeach,Order
+
+
 
 
 # Страницы веб-приложения
@@ -19,6 +20,7 @@ def home (request):
 def getdressed (request, category_slug=None):
     category_page = None
     products = None
+    present = Presentation.objects.all()
     if category_slug != None:
         category_page = get_object_or_404(Category, slug=
             category_slug)
@@ -27,7 +29,7 @@ def getdressed (request, category_slug=None):
     else:
         products = Product.objects.all().filter(draft=False)
     return render(request, 'getdressed.html', {'category':category_page,
-                'products' : products} )
+                'products' : products, 'present':present} )
 
 
 def product (request, category_slug, product_slug):
@@ -37,9 +39,12 @@ def product (request, category_slug, product_slug):
     return render(request, 'product.html', {'product' : product, 'image' : image})
 
 
+
 def teach (request):
-    teach  = Course.objects.all()
-    return render(request, 'teach.html', {'teach' : teach})
+    list = Course.objects.filter(is_published=True)
+    collage = Imagecourse.objects.all()
+    return render(request, 'teach.html',{'list' : list, 'collage' : collage})   
+
 
 def political (request):
     return render(request, 'political.html')
@@ -61,21 +66,40 @@ def edit(request):
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
+        
     return render(request,'addavatar.html',{'user_form' : user_form, 'profile_form' : profile_form})
 
+# Forms
 def order_create(request):
 
     if request.method == 'POST':
         order_form = OrderEditForm(data=request.POST,
                                     files=request.FILES)
         if order_form.is_valid():
+            try:
+                Order.objects.create(**order_form.cleaned_data)
+                return redirect('getdressed')
+            except:
+                order_form.add_error(None, 'Error orders')
             order_form.save()
-            messages.success(request, 'call you back')
-        else:
-            messages.error(request, 'try again')
     else:
         order_form = OrderEditForm ()
     return render(request,'order_create.html',{'order_form' : order_form})                                   
+
+def teach_created(request):
+
+    if request.method == 'POST':
+        teach_form = OrderFormTeach(data=request.POST)
+        if teach_form. is_valid():
+            try:
+                OrderTeach.objects.create(**teach_form.cleaned_data)
+                return redirect('teach')
+            except:
+                teach_form.add_error(None, 'Error orders')
+            teach_form.save()
+    else:
+        teach_form = OrderFormTeach()
+    return render(request,'teach_created.html',{'teach_form': teach_form})
 
 # User
 def user_login(request):
@@ -102,7 +126,7 @@ def register (request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
-            # Cоздаем нового пользователя, но пока не сохраняем в базу данных.
+            
             new_user = user_form.save(commit=False)
             # Создаем пользователю зашифрованный пароль.
             new_user.set_password(user_form.cleaned_data['password'])

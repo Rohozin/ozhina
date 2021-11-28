@@ -1,10 +1,8 @@
 from django.conf import settings
 from django.db import models
-from django.utils import timezone
 from django.conf import settings
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
-from django.contrib.auth.models import User
 from embed_video.fields import EmbedVideoField
 
 class Category (models.Model):
@@ -22,6 +20,11 @@ class Category (models.Model):
     def __str__(self):
         return self.name
 
+class Presentation (models.Model):
+    name = models.CharField (max_length=50,
+                                        unique=True,verbose_name='Name')
+    video = EmbedVideoField (blank=True, null=True,)
+    about = models.TextField (blank=True,verbose_name='Description')
 
 class Product (models.Model):
     category = models.ForeignKey (Category,
@@ -62,6 +65,7 @@ class Imagecollection (models.Model):
     image = models.ImageField (upload_to='imagecollection/',blank=True,verbose_name='vertical 16: 9 or square image')
     draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Hide')
     money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Price per model')
+    clothesmodel = models.FileField(upload_to='clothesmodel/',blank=True, null=True,verbose_name='clothesmodel')
     format_file = models.TextField (max_length=5,
                                         blank=True,verbose_name='Electronic document format')
     time = models.TextField (max_length=3, blank=True,verbose_name='Hours of consultations for 1 model')
@@ -120,6 +124,7 @@ class Order (models.Model):
     created     = models.DateTimeField (auto_now_add=True)
     cat         = models.ForeignKey (Category,
                                         on_delete=models.CASCADE,verbose_name='Clothing category')
+    agreement   = models.BooleanField(verbose_name='I accept the Terms of Service and Privacy Policy',default=True)
     
     def __str__(self):
         return self.name        
@@ -130,34 +135,64 @@ class Course (models.Model):
     slug            = models.SlugField(max_length=50,
                                         unique=True)
     about           = models.TextField(max_length=500,verbose_name='Description')
+    money           = models.DecimalField (max_digits=10, 
+                                        decimal_places=2,
+                                        blank=True, 
+                                        null=True,
+                                        verbose_name='Price for 1 lessons')
     image           = models.ImageField(upload_to="course",
                                         blank=True,
                                         verbose_name='Presentation image')
-    lessons_circle  = models.DecimalField(max_digits=10, 
-                                        decimal_places=1,
-                                        verbose_name='Classes in 1 course')
-    #Цыклы занятий
-    circle          = models.DecimalField(max_digits=10,
-                                        decimal_places=1,
-                                        verbose_name='Number of courses')
-    #Количество часов
-    time            = models.TextField(max_length=51,
-                                        verbose_name='Hours for 1 day')
     online          = models.TextField(max_length=10,
                                         blank=True,
                                         verbose_name='Online')
     alive           = models.TextField(max_length=10,
                                         blank=True,
-                                        verbose_name='Meetings')
+                                        verbose_name='Alive')
+    is_published    = models.BooleanField(default=True, verbose_name="Публикация")
 
     class Meta:   
         ordering = ('name',)
         verbose_name = 'course'
         verbose_name_plural = 'courses'
 
-    def get_url(self):
-        return reverse('course_list', args=[self.slug])
-
     def __str__(self):
     		return self.name
+
+
     
+class Imagecourse(models.Model):
+    
+    image = models.ImageField (upload_to="studentimage",
+                                        blank=True,
+                                        verbose_name='Studentimage')
+    course = models.ForeignKey (Course,
+                                    related_name='course' ,
+                                    on_delete=models.CASCADE,verbose_name='Course')
+    created     = models.DateTimeField (auto_now_add=True)
+
+    class Meta:
+        ordering = ['-image']
+
+
+class OrderTeach (models.Model):
+    name        = models.TextField  (max_length=50,
+                                        blank=True,
+                                        null=True,
+                                        verbose_name='Name')
+    
+    phone_number = models.CharField (max_length=25,
+                                        blank=True, 
+                                        null=True,
+                                        verbose_name='Phone number')
+    massege     = models.TextField (max_length=500,
+                                        blank=True,
+                                        null=True,
+                                        verbose_name='What do you expect from the course')
+    created     = models.DateTimeField (auto_now_add=True)
+    course      = models.ForeignKey (Course,
+                                        on_delete=models.CASCADE,verbose_name='Course')
+    agreement   = models.BooleanField(verbose_name='I accept the Terms of Service and Privacy Policy',default=True)
+    
+    def __str__(self):
+        return self.name        

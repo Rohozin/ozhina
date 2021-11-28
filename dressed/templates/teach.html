@@ -10,41 +10,48 @@
 {% block content %}
     <div class="teach">
         <div class="teachbox">
-            <img class="immind" src="{% static 'images/mind.png' %}">
+            <a><img class="immind" src="{% static 'images/mind.png' %}"></a>
+            <div class="teachboxtext">
+                <p class="teachtext">Unleash your talents</p>
+                <div class="teachicreate" >
+                    <div class="glow-on-hover" >
+                        <a class="teachicreate" href="{% url "teach_created" %}"> <img  src="{% static 'images/teach_created.svg' %}"> </a>
+                    </div>
+                </div>
+                <p class="teachtextwo">we only provide individual lessons</p>
+                <p class="teachtext">choose direction</p>
+            </div>
         </div>
     </div>
     <div class="boxpic">
+        {% for col in collage %}
+        <div class= "collage">
+            <div class= "collageblock">
+            <div><img class="collageimage"  src="{{ col.image.url }}"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="boxpic">
         <div class="course">
-        {% for teaches in teach %}
+        {% for tea in list %}
             <div class = "boxcourseinf">
                 <div class = "boxcourses">
-                    <div class = "boxcoursestwo">
-                        <div class="button">
-                            <p class="boxteachab" href=""> {{teaches.about}} </p>
-                            <a class="coursename" href=""> {{teaches.name}} </a>
-                            <p class="titleteach"> we perform </p>
-                            <a class="coursenameon" href="">{{teaches.alive}} </a>
-                            <a class="coursenameon" href="">{{teaches.online}} </a>
-                        </div>
-                        
-                    </div>
-                    <div class="boxnar"> 
-                        <div class = "boxhar">
-                            <a class="copq" href="">{{teaches.circle}} <p class="cop">volume of topics in the courses</p></a> 
-                            <a class="copq" href="">{{teaches.time}} <p class="cop">обсяг тем volume of topics in hoursу годинах</p> </a>
-                               
-                        </div>
-                        <a class="copq" href="">{{teaches.lessons_circle}} <p class="cop">courses</p></a>
+                    <div class = "boxcoursestwo" >
+                        <div class="courseflex">
+                            <a class="coursename" > {{tea.name}} </a>
+                            <a class="coursenameon" > {{tea.alive}} </a>
+                            <a class="coursenameon" > {{tea.online}} </a>
+                            <a class="courseabout"> {{tea.about}} </a>
+                        </div> 
                     </div>
                 </div>
             </div>  
         {% endfor %}
         </div>
-
-        <canvas></canvas>
+    </div>
+    <div class="course">
+        <p class="teachtext">languages: укр рус eng </p>
     </div>
 
-    
-
-    <script src="static/js/script.js"></script>
 {% endblock %}

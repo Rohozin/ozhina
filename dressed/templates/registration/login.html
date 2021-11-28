@@ -21,17 +21,17 @@
                             <a  for="{{ form.password.id_for_label }}">Password:</a>
                             <a class="form-input">{{ form.password }}</a>
                     {% csrf_token %}
-                    
-                    <button>
-                        <a class="apply"> apply </a>
-                    </button>
+                    <div class='centerbut'>
+                        <button>
+                            <a class="apply"> apply </a>
+                        </button>
+                    </div>
                 </form>
             </div>
             {% if form.errors %}
                 <p>Your username and password do not match. Please try again.</p>
             {% else %}
-                <p>Please use the following login form.</p>
-                <p>If you do not have an account </p> 
+                <p>Register to create a virtual avatar in your profile.</p>
                 <a class="apply" href="{% url "register" %}"><img  src="{% static 'images/reg.svg' %}"></a>
                 
             {% endif %}

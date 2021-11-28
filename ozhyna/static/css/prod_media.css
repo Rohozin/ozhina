@@ -32,6 +32,9 @@
         display: flex;
         justify-content: center;
     }
+    .prodboxfive {
+        margin-top: 50px;
+    }
 }
 
 /* Extra Small Devices, Phones */
@@ -45,9 +48,7 @@
     .prodboxon {
         padding-top: 60%;
     }
-    .prodboxtwo {
-        padding-bottom: 80%;
-    }
+   
     .gridbuttonon{
         width: 9px;
         z-index: 1;

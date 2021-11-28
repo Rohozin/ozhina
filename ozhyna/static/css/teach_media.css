@@ -1,14 +1,23 @@
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) { 
+@media only screen and (max-width : 1025px) { 
 
     .teach {
         
         padding-top: 200px;
-        background-color: black;
-    }
 
-    .immind {
+    }
+    .teachbox {
+        
+        padding-bottom: 10%;
         width: 100%;
+        
+    }
+    .teachtext {
+        font-size: 30;
+    }
+    .immind {
+
+        width: 60%;
     }
     .course { 
         display: flex;
@@ -25,13 +34,71 @@
     }
 
  }
+ @media only screen and (max-width : 500px) { 
+    .teachboxtext {
+        height: 200%;
+    }
+    .teachbox {
+        padding-top: 5%;
+    }
+    .teachtext {
+        font-size: 32;
+    }
+    .immind {
+        margin-left: 9%;
+        width: 90%;
+    }
+    .course { 
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        padding-right: 5%;
+     }
 
+    .boxcourseinf {
+        width: 100%;
+        margin-top: 11px;
+        margin-bottom: 11px;
+    }
+
+}
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) { 
+@media only screen and (max-width : 400px) { 
+    .teachboxtext {
+        height: 200%;
+    }
+    
+    .teachtext {
+        font-size: 27;
+    }
+    .immind {
+        margin-left: 9%;
+        width: 90%;
+    }
+    .course { 
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        padding-right: 5%;
+     }
 
+    .boxcourseinf {
+        width: 100%;
+        margin-top: 11px;
+        margin-bottom: 11px;
+    }
+
+}
+
+@media only screen and (max-width : 300px) { 
+    .teachtext {
+        font-size: 25;
+    }
+    
 
     .immind {
-        width: 100%;
+        margin-left: 9%;
+        width: 90%;
     }
     .course { 
         display: flex;

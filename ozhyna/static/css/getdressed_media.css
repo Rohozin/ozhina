@@ -7,7 +7,7 @@
     }
 
     .catcollections{
-        width: 20%;
+        width: 15%;
         padding-top: 135px;
         padding-bottom: 60px;   
         overflow-x: hidden;
@@ -91,7 +91,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        width: 70%;
+        width: 85%;
         margin-top: 0px;
         padding-top: 135px;
         padding-bottom: 60px;  
@@ -141,6 +141,23 @@
         font-size: 13px;
         line-height: 18px;
         color: #828282;
+    }
+}
+
+@media(max-width: 500px){
+    .catcollections{
+        width: 23%;
+    }
+
+    .getcolbox{
+        width: 77%;
+    }
+    .cont {
+        width: 50%;
+    }
+
+    .links{
+        width: 100%;
     }
 }
 

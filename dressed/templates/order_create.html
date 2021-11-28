@@ -10,14 +10,25 @@
     <div class="formblock">
         <form action="." method="post" enctype="multipart/form-data">
             <div class="formorder">
-                <h1 class="">Make an order</h1>
+                <h1 class="headingform">Make an order</h1>
+                <div class="message">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <a class="{{ message.tags }}">
+                                    {{ message|safe }}
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
                 {{ order_form.as_p}}
                 {% csrf_token %}
-                <!--<a><input type='submit' value='Замовити' /></a>-->
-                <button>
-                    <a class="apply"> apply </a>
-                </button>
-                <p class="orderp">I agree with processing my personal data in accordance with the law of Ukraine.</p>
+                <div class='centerbut'>
+                    <button>
+                        <a class="apply"> apply </a>
+                    </button>
+                </div>
             </div>
         </form>
     </div>

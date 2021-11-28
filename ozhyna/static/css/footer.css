@@ -1,6 +1,7 @@
 .ozhinafooter {
     display: flex;
     justify-content:baseline;
+    align-items: center;
     color: rgb(85, 85, 85);
     padding-bottom: 30px;
     padding-top: 30px;

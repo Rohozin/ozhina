@@ -23,21 +23,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/teach_media.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form_media.css' %}">
 </body>
 
 <head>
-    <div class="message">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <a class="{{ message.tags }}">
-                        {{ message|safe }}
-                    </a>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </div>
     <nav class="navbar"> 
         <div class="out">
             <div class="in one">
