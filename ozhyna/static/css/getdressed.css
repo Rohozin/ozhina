@@ -151,10 +151,13 @@
 }
 
 .getcolbox {
-    display: flex;
-    justify-content: space-between;
     margin-top: 120px;
     padding: 0 20px;
+}
+
+.getcolbox>div{
+    display: flex;
+    justify-content: space-between;
 }
 .uss {
     width: auto;
@@ -224,8 +227,7 @@
 }
 .h2get {
     padding-bottom: 3%;
-    color: ghostwhite;
-    text-shadow: 0px 0px 20px rgb(255, 255, 255);
+    color: rgb(204, 204, 204);
 }
 .p2get {
     color: rgb(97, 97, 97)

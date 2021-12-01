@@ -5,7 +5,7 @@
 {% load static %}
 
 {% block title %}
-    Одягтися
+    Getdressed
 {% endblock %}
 {% if messages %}
         <ul class="messages">
@@ -45,45 +45,47 @@
             </div> 
         </div>
         <section class="getcolbox">
-            <div class="imgcoll">  
-                <div class="container">
-                    {% for product in products %}
-                        <div class="cont">
-                            <div class="line"></div>
-                            <div class="links">
-                                <a class="picts" href="{{product.get_url}}"><img src="{{product.image.url}}" alt="{{product.name_collection}}"></a>
-                                <a class="descs" href="{{product.get_url}}"> {{product.name_collection}} </a>
+            <div>
+                <div class="imgcoll">  
+                    <div class="container">
+                        {% for product in products %}
+                            <div class="cont">
+                                <div class="line"></div>
+                                <div class="links">
+                                    <a class="picts" href="{{product.get_url}}"><img src="{{product.image.url}}" alt="{{product.name_collection}}"></a>
+                                    <a class="descs" href="{{product.get_url}}"> {{product.name_collection}} </a>
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}   
+                        {% endfor %}   
+                    </div>
                 </div>
-            </div>
-            <div class="create">
-                {% for pres in present %}
-                <div class="createon">
-                    <h2 class="h2get">{{pres.name}}</h2>
-                    {% video pres.video '100% x 250' %}
-                    <p class="p2get">{{pres.about}}</p>
-                </div>
-                {% endfor %}
-                <div class="createon">
-                    <h2 class="h2get">1 stеp. Creating in a virtual workshop:</h2>
-                    <p class="p2get">- a free virtual avatar according to the parameters of your body <br>
-                    - virtual clothes according to the parameters of your avatar<br>
-                    - created a personal design base of patterns for sewing clothes<br>
-                    - realistic virtual model of clothing behavior on the body, the degree of fit to the body<br>
-                    - animation of your daily movements, observation of clothing behavior to ensure comfort (steps, running, exercises), or how you will look at a photo shoot <br>
-                    - you will have your own place, where clothes will be created and scenes will be imitated<br>
-                    </p>
-                </div>
-                <div class="createon">
-                    <h2 class="h2get">Step 2. We sew:</h2>
-                    <p class="p2get">- according to the patterns of the created avatar<br>
-                    - we choose fabrics together <br>
-                    - follow the step-by-step technological process</p>
+                <div class="create">
+                    {% for pres in present %}
+                    <div class="createon">
+                        <h2 class="h2get">{{pres.name}}</h2>
+                        {% video pres.video '100% x 250' %}
+                        <p class="p2get">{{pres.about}}</p>
+                    </div>
+                    {% endfor %}
+                    <div class="createon">
+                        <h2 class="h2get">1 stеp. Creating in a virtual workshop:</h2>
+                        <p class="p2get">- a free virtual avatar according to the parameters of your body <br>
+                        - virtual clothes according to the parameters of your avatar<br>
+                        - created a personal design base of patterns for sewing clothes<br>
+                        - realistic virtual model of clothing behavior on the body, the degree of fit to the body<br>
+                        - animation of your daily movements, observation of clothing behavior to ensure comfort (steps, running, exercises), or how you will look at a photo shoot <br>
+                        - you will have your own place, where clothes will be created and scenes will be imitated<br>
+                        </p>
+                    </div>
+                    <div class="createon">
+                        <h2 class="h2get">Step 2. We sew:</h2>
+                        <p class="p2get">- according to the patterns of the created avatar<br>
+                        - we choose fabrics together <br>
+                        - follow the step-by-step technological process</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-  
+    <script src="{% static 'js/getdressed.js' %}" type="text/javascript"></script>
 {% endblock %}
