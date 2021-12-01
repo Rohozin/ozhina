@@ -54,4 +54,27 @@
         <p class="teachtext">languages: укр рус eng </p>
     </div>
 
+    <footer>
+        {% load static %}
+        <div class="ozhinafooter">
+            <div class="pfooter">
+                <a class="polit" href="{% url "political" %}"><p >Privacy policy</p></a>
+            </div>
+            <div class="pfooter">
+                <h3>Suggestions</h3>
+                <p class="ozfter" >ozhina.inc@gmail.com</p>
+            </div>
+            <div class="pfooter">
+                <h3>Communication</h3>
+                <p class="ozfter" >+38097 191 1367</p>
+                <img class="ozfim" src="{% static 'images/masseges.png' %}">
+            </div>
+            <div class="ozfooter">
+                <img src="{% static 'images/ozhinasmall.svg' %}">
+                <p class="lead_text"> copyright &copy; 2021 OZHINA </p>
+            </div>
+        </div>
+    </footer>
+
 {% endblock %}
+
