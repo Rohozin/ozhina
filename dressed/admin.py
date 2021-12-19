@@ -15,7 +15,7 @@ class PresentationAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
-    list_display = ['id','category', 'name_collection', 'slug', 'miniimage','video','description','money','format_file','time','draft' ]
+    list_display = ['id','category', 'name_collection', 'slug', 'miniimage','video','description','format_file','time','draft' ]
     prepopulated_fields = {'slug': ('name_collection',)}
 
     def miniimage(self, object):
@@ -25,7 +25,7 @@ class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 @admin.register(Imagecollection)
 class ImagecollectionAdmin(admin.ModelAdmin):
-    list_display = ['id','title','collectionpresent','miniimage','money','clothesmodel','format_file','time','draft']
+    list_display = ['id','title','collectionpresent','miniimage', 'video', 'money','draft','created','updated']
 
     def miniimage(self, object):
         if object.image:
@@ -49,6 +49,15 @@ class Imagecourse(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ['id','user','phone','full_height','neck_girth','chest_girth','chest_height','center_chest','back_width','shoulder_long','long_sleeves','arm_girth','wrist_girth','waist_circumference','length_front_waist','long_back_waist','long_waist_knee','hip_girth','thigh_girth','knee_girth']
+
+@admin.register(CollectionUser)
+class CollectionUserAdmin(admin.ModelAdmin):
+    list_display = ['user', 'clothingparameters', 'order', 'miniimage', 'video', 'ordernumber', 'material', 'document', 'created']
+
+    def miniimage(self, object):
+        if object.image:
+            return mark_safe(f"<img src='{object.image.url}' width=90")
+    miniimage.__name__ = "Міні-зображення"
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):

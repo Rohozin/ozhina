@@ -6,8 +6,9 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import LoginForm,UserRegistrationForm, UserEditForm, ProfileEditForm, OrderEditForm, OrderFormTeach
-from .models import Category,Presentation,Product,Imagecollection,Profile,Course,Imagecourse,OrderTeach,Order
+from .models import Category,Presentation,Product,Imagecollection,Profile,Course,Imagecourse,OrderTeach,Order, CollectionUser
 
 
 
@@ -45,10 +46,12 @@ def teach (request):
     collage = Imagecourse.objects.all()
     return render(request, 'teach.html',{'list' : list, 'collage' : collage})   
 
+def room (request):
+    return render(request, 'room.html')
 
-def political (request):
-    return render(request, 'political.html')
-
+def collection (request):
+    col = CollectionUser.objects.filter(user = request.user)
+    return render(request, 'collection.html',{'col' : col})
 
 
 @login_required
@@ -138,3 +141,6 @@ def register (request):
     else:
         user_form = UserRegistrationForm()
     return render (request, 'registration/register.html', {'user_form': user_form})
+
+def political (request):
+    return render(request, 'political.html')

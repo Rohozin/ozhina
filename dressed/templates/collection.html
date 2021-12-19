@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load embed_video_tags %}
+
+{% block title %}
+    Collection
+{% endblock %}
+
+{% block content %}
+
+<div class='collectionblock'>
+    <div class='collectionblocktwo'>
+        <div class='colsi'>
+            {% for col in col %}
+            <div class='colsize'>
+                <div class='collectionone'>
+                    <div class='collectionheading'>
+                        <a >{{ col.category }}</a>
+                    </div>
+                    <div class='collectionorder'>
+                        <a class='paramdata'>№ </a><h2 > {{ col.ordernumber }}</h2>
+                    </div>
+                </div>
+                <div class='collectiontwo'>
+                    <div class='collectionimage'>
+                        <a href=""><img class="imgpr1" src="{{ col.image.url }}"></a>
+                    </div>
+                    <div class='collectionsize'>
+                        <p class='param'>parameters:<br>mm</p>
+                        <a class='paramdata'>{{ col.clothingparameters }}</a> 
+                    </div>
+                </div>
+                <div class='collectiovideo'>
+                    {% video col.video '100% x 20%' %}
+                </div>
+                <div class='collectionabout'>
+                    <div class='collectiondoc'>    
+                        <a href="{{ col.document.url }"> <img  src="{% static 'images/doc.svg' %}"></a>
+                    </div>
+                    <p class='paramdata'>{{ col.material }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

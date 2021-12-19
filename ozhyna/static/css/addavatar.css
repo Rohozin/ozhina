@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(110, 128, 155);
+    background-color: rgb(10, 10, 10);
 }
 .addform {
     display: flex;
@@ -14,7 +14,7 @@
     padding-left: 5%;
     padding-right: 5%;
     width: 100%;
-    color: cornsilk;
+    color: rgb(0, 0, 0);
 }
 .add {
     
@@ -40,13 +40,14 @@
 .p2get1 {
     display: flex;
     justify-content: center;
-    color: rgb(255, 255, 255);
+    color: rgb(131, 131, 131);
 }
 
-.avah2get {
+.avah2gett {
     display: flex;
     justify-content: center;
     padding-bottom: 3%;
-    color: ghostwhite;
+    font-size: 25;
+    color: rgb(255, 255, 255);
     text-shadow: 0px 0px 20px rgb(255, 255, 255),0 0 0.6em rgb(255, 255, 255);;
 }

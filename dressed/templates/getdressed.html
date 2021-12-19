@@ -36,7 +36,7 @@
                 </div>
                 <div class="uss">
                     {% if request.user.is_authenticated %}
-                    <a class="usrprofon" href="{% url "edit" %}">{{ request.user.first_name }}</a>
+                    <a class="usrprofon" href="{% url "room" %}">{{ request.user.first_name }}</a>
                     <a class="usrprof" href="{% url "logout" %}"><img  src="{% static 'images/out.svg' %}"></a>
                     {% else %}
                     <a class="usrprof" href="{% url "login" %}"><img  src="{% static 'images/in.svg' %}"></a>

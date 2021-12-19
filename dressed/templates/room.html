@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Room
+{% endblock %}
+
+
+{% block content %}
+
+<div class='roomblock'>
+    <div class='roomblocktwo'>
+        <div class='roomusera'>
+            {% if request.user.is_authenticated %}
+                <a class="roomusera" href="">{{ request.user.first_name }}</a>
+            {% endif %} 
+        </div>
+        <div class='roomblocktwo'>
+            <a href="{% url "collection" %}"><img class="roomknock" src="{% static 'images/collection.svg' %}"></a>
+            <a href="{% url "edit" %}"><img class="roomknock" src="{% static 'images/human.svg' %}"></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

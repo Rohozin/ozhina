@@ -10,7 +10,7 @@ html{
 }
 
 body {
-    background: #0f0018;
+    background: #0b0011;
 }
 
 nav {
@@ -59,13 +59,13 @@ nav {
 .one>a{
     font-weight: bold;
     margin-right: 31px;
-    color: #ffffff85;
+    color: #e6e6e685;
 }
 
 .three>a{
     margin-left: 31px;
     font-weight: bold;
-    color: #ffffff85;
+    color: #e6e6e685;
 }
 
 .errorlist li {

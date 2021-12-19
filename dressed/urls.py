@@ -14,6 +14,8 @@ urlpatterns = [
     path('edit/', views.edit, name='edit'),
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('room/', views.room, name='room'),
+    path('collection/', views.collection, name='collection'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('password_change/',auth_views.PasswordChangeView.as_view(),name='password_change'),
     path('password_change/done/',auth_views.PasswordChangeDoneView.as_view(),name='password_change_done'),
@@ -24,4 +26,5 @@ urlpatterns = [
     path('teach_created/', views.teach_created, name='teach_created'),
     path('order_create/', views.order_create, name='order_create'),
     path('political/', views.political, name='political'),
+    
 ]

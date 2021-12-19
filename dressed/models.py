@@ -4,10 +4,17 @@ from django.conf import settings
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
 from embed_video.fields import EmbedVideoField
+from django.contrib.auth.models import User
+
 
 class Category (models.Model):
-    name = models.CharField(max_length=100, db_index=True,verbose_name='Category')
-    slug = models.SlugField(max_length=100, unique=True)
+    name = models.CharField(max_length=100,
+                                db_index=True,
+                                verbose_name='Category'
+                                )
+    slug = models.SlugField(max_length=100,
+                                unique=True
+                                ) 
     class Meta:
             
             ordering = ('name',)
@@ -22,27 +29,51 @@ class Category (models.Model):
 
 class Presentation (models.Model):
     name = models.CharField (max_length=50,
-                                        unique=True,verbose_name='Name')
-    video = EmbedVideoField (blank=True, null=True,)
-    about = models.TextField (blank=True,verbose_name='Description')
+                                unique=True,
+                                verbose_name='Name'
+                                )
+    video = EmbedVideoField (blank=True, 
+                                null=True
+                                )
+    about = models.TextField (blank=True,
+                                verbose_name='Description'
+                                )
 
 class Product (models.Model):
     category = models.ForeignKey (Category,
                                     related_name='products' ,
-                                    on_delete=models.CASCADE,verbose_name='Category')
+                                    on_delete=models.CASCADE,
+                                    verbose_name='Category'
+                                    )
     name_collection = models.CharField (max_length=200,
-                                        unique=True,verbose_name='Name')
+                                        unique=True,
+                                        verbose_name='Name'
+                                        )
     slug = models.SlugField (max_length=200,
-                                unique=True)
-    image = models.ImageField (upload_to='product',
-                                blank=True,verbose_name='Presentation image')
-    video = EmbedVideoField (blank=True, null=True,)
-    description = models.TextField (blank=True,verbose_name='Description')
-    draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Hide')
-    money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Price per model')
+                                unique=True
+                                )
+    image = models.ImageField (upload_to='data/clothes/product/',
+                                blank=True,
+                                verbose_name='Presentation image'
+                                )
+    video = EmbedVideoField (blank=True, 
+                                null=True
+                                )
+    description = models.TextField (blank=True,
+                                    verbose_name='Description'
+                                    )
+    draft = models.BooleanField (default=False, 
+                                    help_text= "публиковать/ скрыть", 
+                                    verbose_name= 'Hide'
+                                    )
     format_file = models.TextField (max_length=5,
-                                        blank=True,verbose_name='Electronic document format')
-    time = models.TextField (max_length=3, blank=True,verbose_name='Hours of consultations for 1 model')
+                                        blank=True,
+                                        verbose_name='Electronic document format'
+                                        )
+    time = models.TextField (max_length=3, 
+                                blank=True,
+                                verbose_name='Hours of consultations for 1 model'
+                                )
     created = models.DateTimeField (auto_now_add=True)
     updated = models.DateTimeField (auto_now=True)
     
@@ -60,24 +91,40 @@ class Product (models.Model):
 
 
 class Imagecollection (models.Model):
-    title = models.CharField (max_length=30,verbose_name= 'Name of the creator and today date')
-    collectionpresent = models.ForeignKey (Product, related_name = 'imagecollection', on_delete=models.CASCADE)
-    image = models.ImageField (upload_to='imagecollection/',blank=True,verbose_name='vertical 16: 9 or square image')
-    draft = models.BooleanField (default=False, help_text= "публиковать/ скрыть", verbose_name= 'Hide')
-    money = models.DecimalField (max_digits=10, decimal_places=2,blank=True, null=True,verbose_name='Price per model')
-    clothesmodel = models.FileField(upload_to='clothesmodel/',blank=True, null=True,verbose_name='clothesmodel')
-    format_file = models.TextField (max_length=5,
-                                        blank=True,verbose_name='Electronic document format')
-    time = models.TextField (max_length=3, blank=True,verbose_name='Hours of consultations for 1 model')
+    title               = models.CharField (max_length=30,
+                                verbose_name= 'Name of the creator'
+                                )
+    collectionpresent   = models.ForeignKey (Product, 
+                                            related_name = 'imagecollection', 
+                                            on_delete=models.CASCADE
+                                            )
+    image               = models.ImageField (upload_to='data/clothes/imagecollection/',
+                                blank=True,
+                                verbose_name='vertical 16: 9 or square image'
+                                )
+    video               = EmbedVideoField (blank=True, 
+                                            null=True
+                                            )
+    draft               = models.BooleanField (default=False, 
+                                    help_text= "публиковать/ скрыть", 
+                                    verbose_name= 'Hide'
+                                    )
+    money               = models.DecimalField (max_digits=10, 
+                                    decimal_places=2,
+                                    blank=True, 
+                                    null=True,
+                                    verbose_name='Price per model'
+                                    )
+    created = models.DateTimeField (auto_now_add=True)
+    updated = models.DateTimeField (auto_now=True)
 
     class Meta:
-        ordering = ['-title']
+        ordering = ['-created']
         verbose_name = 'imagecollection'
         verbose_name_plural = 'imagecollections'
 
     def __str__(self):
     		return self.title
-
 
 
 class Profile (models.Model):
@@ -104,51 +151,107 @@ class Profile (models.Model):
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
 
+
 class Order (models.Model):
-    name        = models.TextField  (max_length=50,
+    name            = models.TextField  (max_length=50,
                                         blank=True,
                                         null=True,
-                                        verbose_name='Name')
-    
-    phone_number = models.CharField (max_length=25,
+                                        verbose_name='Name'
+                                        )
+    phone_number    = models.CharField (max_length=25,
                                         blank=True, 
                                         null=True,
-                                        verbose_name='Phone number')
-    image       = models.ImageField (upload_to='order/',
+                                        verbose_name='Phone number'
+                                        )
+    image           = models.ImageField (upload_to='data/clothes/order/',
                                         blank=True,
-                                        verbose_name='Download image')
-    massege     = models.TextField (max_length=1000,
+                                        verbose_name='Download image'
+                                        )
+    massege         = models.TextField (max_length=1000,
                                         blank=True,
                                         null=True,
                                         verbose_name='Your wishes')
-    created     = models.DateTimeField (auto_now_add=True)
-    cat         = models.ForeignKey (Category,
-                                        on_delete=models.CASCADE,verbose_name='Clothing category')
-    agreement   = models.BooleanField(verbose_name='I accept the Terms of Service and Privacy Policy',default=True)
-    
+    created         = models.DateTimeField (auto_now_add=True)
+    cat             = models.ForeignKey (Category,
+                                            on_delete=models.CASCADE,
+                                            verbose_name='Clothing category'
+                                            )
+    agreement       = models.BooleanField(verbose_name='I accept the Terms of Service and Privacy Policy',
+                                            default=True
+                                            )
     def __str__(self):
         return self.name        
 
+class CollectionUser(models.Model):
+    user            = models.ForeignKey(User,
+                                            related_name='collection_user',
+                                                on_delete=models.CASCADE
+                                                )
+    category = models.ForeignKey (Category,
+                                    related_name='category' ,
+                                    on_delete=models.CASCADE,
+                                    verbose_name='Category',
+                                    null=True,
+                                    )
+    clothingparameters = models.TextField(verbose_name='Clothing parameters',
+                                            null=True,
+                                            help_text="parameters: pg96,gk107"
+                                            )
+    order           = models.ForeignKey(Order, 
+                                            related_name = 'order', 
+                                            on_delete=models.CASCADE
+                                            )
+    image           = models.ImageField (upload_to='data/user/img_user_collection/',
+                                            blank=True
+                                            )
+    video           = EmbedVideoField (blank=True, 
+                                            null=True
+                                            )
+    ordernumber     = models.PositiveIntegerField (verbose_name="Number order", 
+                                                    default=0, 
+                                                    help_text="id_orderform"
+                                                    )
+    material        = models.TextField(max_length= 600,
+                                            verbose_name='Materials for model'
+                                            )
+    document        = models.FileField(upload_to="data/user/documents_collection/", null=True, blank=True)
+    created         = models.DateTimeField (auto_now_add=True)
+
+    class Meta:   
+        ordering = ['-video']
+        verbose_name = 'collection'
+        verbose_name_plural = 'collections'
+
+    def __str__(self):
+        return self.clothingparameters
 
 class Course (models.Model):
-    name            = models.CharField(max_length=50,verbose_name='Name of the course')
+    name            = models.CharField(max_length=50,
+                                        verbose_name='Name of the course'
+                                        )
     slug            = models.SlugField(max_length=50,
                                         unique=True)
-    about           = models.TextField(max_length=500,verbose_name='Description')
+    about           = models.TextField(max_length=500,
+                                        verbose_name='Description'
+                                        )
     money           = models.DecimalField (max_digits=10, 
                                         decimal_places=2,
                                         blank=True, 
                                         null=True,
-                                        verbose_name='Price for 1 lessons')
-    image           = models.ImageField(upload_to="course",
+                                        verbose_name='Price for 1 lessons'
+                                        )
+    image           = models.ImageField(upload_to="data/learn/course",
                                         blank=True,
-                                        verbose_name='Presentation image')
+                                        verbose_name='Presentation image'
+                                        )
     online          = models.TextField(max_length=10,
                                         blank=True,
-                                        verbose_name='Online')
+                                        verbose_name='Online'
+                                        )
     alive           = models.TextField(max_length=10,
                                         blank=True,
-                                        verbose_name='Alive')
+                                        verbose_name='Alive'
+                                        )
     is_published    = models.BooleanField(default=True, verbose_name="Публикация")
 
     class Meta:   
@@ -163,36 +266,44 @@ class Course (models.Model):
     
 class Imagecourse(models.Model):
     
-    image = models.ImageField (upload_to="studentimage",
+    image           = models.ImageField (upload_to="data/learn/studentimage",
                                         blank=True,
-                                        verbose_name='Studentimage')
-    course = models.ForeignKey (Course,
-                                    related_name='course' ,
-                                    on_delete=models.CASCADE,verbose_name='Course')
-    created     = models.DateTimeField (auto_now_add=True)
+                                        verbose_name='Studentimage'
+                                        )
+    course          = models.ForeignKey (Course,
+                                            related_name='course' ,
+                                            on_delete=models.CASCADE,
+                                            verbose_name='Course'
+                                            )
+    created         = models.DateTimeField (auto_now_add=True)
 
     class Meta:
         ordering = ['-image']
 
 
 class OrderTeach (models.Model):
-    name        = models.TextField  (max_length=50,
-                                        blank=True,
-                                        null=True,
-                                        verbose_name='Name')
-    
-    phone_number = models.CharField (max_length=25,
-                                        blank=True, 
-                                        null=True,
-                                        verbose_name='Phone number')
-    massege     = models.TextField (max_length=500,
-                                        blank=True,
-                                        null=True,
-                                        verbose_name='What do you expect from the course')
-    created     = models.DateTimeField (auto_now_add=True)
-    course      = models.ForeignKey (Course,
-                                        on_delete=models.CASCADE,verbose_name='Course')
-    agreement   = models.BooleanField(verbose_name='I accept the Terms of Service and Privacy Policy',default=True)
-    
+    name            = models.TextField  (max_length=50,
+                                            blank=True,
+                                            null=True,
+                                            verbose_name='Name'
+                                            )
+    phone_number    = models.CharField (max_length=25,
+                                            blank=True, 
+                                            null=True,
+                                            verbose_name='Phone number'
+                                            )
+    massege         = models.TextField (max_length=500,
+                                            blank=True,
+                                            null=True,
+                                            verbose_name='What do you expect from the course'
+                                            )
+    created         = models.DateTimeField (auto_now_add=True)
+    course          = models.ForeignKey (Course,
+                                            on_delete=models.CASCADE,
+                                            verbose_name='Course'
+                                            )
+    agreement       = models.BooleanField(verbose_name='I accept the Terms of Service and Privacy Policy',
+                                            default=True
+                                            )                                   
     def __str__(self):
         return self.name        

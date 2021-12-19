@@ -18,7 +18,7 @@
     }
 
     .catcollections::-webkit-scrollbar{
-        width: 4px;
+        width: 6px;
     }
     
     .catcollections::-webkit-scrollbar-thumb{
@@ -121,7 +121,7 @@
     }
     
     .getcolbox::-webkit-scrollbar-thumb{
-        background-color: #1a1922;
+        background-color: #15141b;
     }
 
     .imgcoll{

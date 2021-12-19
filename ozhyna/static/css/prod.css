@@ -3,13 +3,13 @@
 .flexctprod {
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
+    width: 100%;
 }
 
 .prodbox {
     display: flex;
     flex-direction: column;
-    padding-top: 20%;
+    padding-top: 10%;
 }
 
 .prodboxon {
@@ -22,18 +22,15 @@
 
 .prodbox1 {
     font-size: 51;
-    color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 30px rgb(255, 255, 255);
+    width: 100%;
 
 }
 .prodboxon1 {
-    color: rgb(0, 0, 0);
-    text-shadow: 0px 0px 30px rgb(0, 0, 0);
 }
 .prodboxtwo {
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-size: 21;
     color: #8F00FF;
 }
@@ -47,41 +44,74 @@
     width: 100%;
 }
 
-.gridbuttonon{
-    width: 71px;
-    z-index: 2;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 -5px 31px 5px rgb(255, 255, 255),0 0 0.6em rgb(175, 175, 255);
-}
 .gdimgctproduct {
     display: flex;
     justify-content: center;
-    height: 70%;
+    height: 50%;
     padding-top: 100px;
     padding-bottom: 100px;
 }
 .ctproduct {
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
 }
 .prodcoll {
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
-    width: 61%;
-    height: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    
+    width: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
 }
 
 .gridnamproduct{
-    background-color: rgb(255, 255, 255);
-    box-shadow:  0 -5px 31px 5px rgb(255, 255, 255);
-    width: 33.3%;  
+    width: 25%;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
 }
 
+.gridbuttonon {
+    display: flex;
+    width: 100%;
+    color: grey;
+    background-color: rgb(255, 255, 255);
+    box-shadow:  0 0px 31px 5px rgb(255, 255, 255);
+}
+
+.gridbutono {
+    display: flex;
+    width: 100%;
+    color: rgb(63, 63, 63);
+    text-shadow:  0 0px 31px 5px rgb(255, 255, 255);
+}
+.prodboximname {
+    margin-left: 15%;
+    padding-top: 20%;
+    font-size: 9;
+}
+.prodboxmoney {
+    padding-top: 3%;
+    margin-left: 15%;
+    font-size: 15;
+    font-weight: bold;
+    color: rgb(34, 34, 34);
+}
+.prodboximna{
+    margin-left: 15%;
+    padding-bottom: 20%;
+    font-size: 9;
+}
+
+.prodboximn {
+    margin-left: 10%;
+    padding-top: 5%;
+    font-size: 25;
+    font-weight: bold;
+    color: rgb(46, 68, 49);
+}
 .imgpr1 {
     width: 100%;
 }
@@ -96,29 +126,22 @@
     text-align: center;
     padding-left: 1%;
     padding-right: 1%;
-    padding-bottom: 5%;
     width: 60%;
-    background-color: rgb(255, 255, 255);
-    box-shadow:  0 5px 31px 5px rgb(255, 255, 255);
 }
 
 .prodboxfor {
-    font-size: 17;
+    font-size: 12;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .prodboxFive {
-    padding-top: 10px;
-    font-size: 21;
-    font-weight: bold;
-    font-size: 17;
-    padding-top: 20px;
+    font-size: 15;
     padding-left: 10%;
     padding-right: 10%;
-    color: black;
-    font-weight: bold;
+    color: rgb(78, 78, 78);
+
 }
 
 .prodboxinfo {
@@ -136,18 +159,21 @@
     padding-left: 1%;
     padding-right: 1%;
     font-weight: bold;
-    background-color: rgb(0, 0, 0);
-    color: rgb(138, 138, 138);
+    color: rgb(36, 36, 36);
 }
 
 .userblock1 {
-    margin-bottom: 55px;
-    margin-top: 75px;
-    background-color: rgb(0, 0, 0);
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    
 }
-
+.userblock2 {
+    width: 60%;
+}
 .sphr1 {
-    font-size: 25;
+    font-size: 31;
     color: rgb(255, 255, 255);
     text-shadow: 0px 0px 10px rgb(255, 255, 255);
 }

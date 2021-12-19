@@ -14,64 +14,55 @@
                 <h1 class="prodboxon">{{ product.name_collection }}</h1>
                 <p class="prodboxtwo">{{ product.category }}</p>
             </div>
-            <div class="gdimgctproduct">
-                <div class="ctproduct">
-                    <div class="gridbuttonon"></div>
-                    <div class="prodcoll">
-                        {% for images in image %}
-                            <div class="gridnamproduct">
-                                <a href=""><img class="imgpr1" src="{{images.image.url}}"></a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="gridbuttonon"></div>
-                </div>
-            </div>
             <div class="prodboxthree">
                 <div class="prodboxthr">
-                    {% video product.video '100% x 250' %}
+                    
                     <div class="prodboxinfo">
                         <div class="prodboxinfon">
-                            <p class="prodboxfor">grn <a class="sphr1">{{ product.money }}</a></p>
-                            <p class="prodboxfor">Consultation hours <a class="sphr1">{{ product.time }}</a></p>
-                            <p class="prodboxfor">Сlothing patterns <a class="sphr1">{{ product.format_file }}</a></p>
-                            <p class="prodboxfor">Upload images before ordering </p>
-                            <div class="userblock1">
-                                <div class="glow-on-hover" >
-                                    <a href="{% url "order_create" %}"> <img  src="{% static 'images/form.svg' %}"> </a>
-                                </div>
-                            </div>
+                            <p class="prodboxfor">consultation hours</p>
+                            <a class="sphr1">{{ product.time }}</a>
                         </div>
                         <div class="prodbox1">
-                            <h1 class="prodboxon1">{{ product.name_collection }}</h1>
-                            <p class="prodboxtwo">{{ product.category }}</p>
+                            {% video product.video '100% x 250' %}
+                            <h1 class="prodboxon1">inspiration</h1>
                             <p class="prodboxfive">{{ product.description }}</p>
                         </div>
                     </div>
                 </div>
             </div> 
+                
+            
+            <div class="gdimgctproduct">
+                <div class="ctproduct">
+                    <div class="prodcoll">
+                        {% for images in image %}
+                            <div class="gridnamproduct">
+                                <div class="gridbutono">
+                                    <div class="onon">
+                                        <p class="prodboximname">idea</p>
+                                        <p class="prodboximn">{{ images.title }}</p>
+                                    </div>
+                                </div>
+                                <a href=""><img class="imgpr1" src="{{images.image.url}}"></a>
+                                <div>{% video images.video '100% x 25%' %}</div>
+                                <div class="gridbuttonon">
+                                    <div class="userblock2">
+                                        <p class="prodboximname">try on clothes for your avatar</p>
+                                        <p class="prodboxmoney">$ {{ images.money }}</p>
+                                        <p class="prodboximna">upload images before ordering </p>
+                                    </div>
+                                    <div class="userblock1">
+                                        <div class="glow-on-hover" >
+                                            <a href="{% url "order_create" %}"> <img  src="{% static 'images/formt.svg' %}"> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        
     </div>
-    
-    <footer>
-        {% load static %}
-        <div class="ozhinafooter">
-            <div class="pfooter">
-                <a class="polit" href="{% url "political" %}"><p >Privacy policy</p></a>
-            </div>
-            <div class="pfooter">
-                <h3>Suggestions</h3>
-                <p class="ozfter" >ozhina.inc@gmail.com</p>
-            </div>
-            <div class="pfooter">
-                <h3>Communication</h3>
-                <p class="ozfter" >+38097 191 1367</p>
-                <img class="ozfim" src="{% static 'images/masseges.png' %}">
-            </div>
-            <div class="ozfooter">
-                <img src="{% static 'images/ozhinasmall.svg' %}">
-                <p class="lead_text"> copyright &copy; 2021 OZHINA </p>
-            </div>
-        </div>
-    </footer>
-
 {% endblock %}
