@@ -15,7 +15,7 @@ class PresentationAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
-    list_display = ['id','category', 'name_collection', 'slug', 'miniimage','video','description','format_file','time','draft' ]
+    list_display = ['id','category', 'name_collection', 'slug', 'miniimage','video','description','time','draft' ]
     prepopulated_fields = {'slug': ('name_collection',)}
 
     def miniimage(self, object):

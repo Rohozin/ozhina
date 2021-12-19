@@ -66,10 +66,6 @@ class Product (models.Model):
                                     help_text= "публиковать/ скрыть", 
                                     verbose_name= 'Hide'
                                     )
-    format_file = models.TextField (max_length=5,
-                                        blank=True,
-                                        verbose_name='Electronic document format'
-                                        )
     time = models.TextField (max_length=3, 
                                 blank=True,
                                 verbose_name='Hours of consultations for 1 model'
