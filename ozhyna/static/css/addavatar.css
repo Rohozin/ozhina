@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(0, 0, 0);
 }
 .addform {
     display: flex;
@@ -24,10 +24,10 @@
     width: 100%;
     margin-left: 5%;
     padding-left: 5%;
-
+    color: azure;
 }
 .add2 {
-    
+    color: azure;
     width: 100%;
     padding-top: 5%;
     padding-left: 5%;

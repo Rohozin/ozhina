@@ -25,8 +25,9 @@ class ProductAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 @admin.register(Imagecollection)
 class ImagecollectionAdmin(admin.ModelAdmin):
-    list_display = ['id','title','collectionpresent','miniimage', 'video', 'money','draft','created','updated']
-
+    list_display = ['id','title', 'url','collectionpresent','miniimage', 'video', 'money','draft','file','created','updated']
+    prepopulated_fields = {'url': ('title',)}
+    
     def miniimage(self, object):
         if object.image:
             return mark_safe(f"<img src='{object.image.url}' width=90")

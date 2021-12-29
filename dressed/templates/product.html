@@ -18,12 +18,12 @@
                 <div class="prodboxthr">
                     
                     <div class="prodboxinfo">
-                        <div class="prodboxinfon">
-                            <p class="prodboxfor">consultation hours</p>
-                            <a class="sphr1">{{ product.time }}</a>
-                        </div>
                         <div class="prodbox1">
                             {% video product.video '100% x 250' %}
+                            <div class="prodboxinfon">
+                                <a class="sphr1">{{ product.time }}</a>
+                                <p class="prodboxfor">consultation hours</p>
+                            </div>
                             <p class="prodboxfive">{{ product.description }}</p>
                         </div>
                     </div>

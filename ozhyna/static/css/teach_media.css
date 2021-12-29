@@ -1,16 +1,12 @@
 /* Small Devices, Tablets */
 @media only screen and (max-width : 1025px) { 
 
-    .teach {
-        
+    .teach {   
         padding-top: 200px;
-
     }
     .teachbox {
-        
         padding-bottom: 10%;
-        width: 100%;
-        
+        width: 100%;  
     }
     .teachtext {
         font-size: 30;
@@ -32,7 +28,9 @@
         margin-top: 11px;
         margin-bottom: 11px;
     }
-
+    .collage {
+        width: 20%;
+      }
  }
  @media only screen and (max-width : 500px) { 
     .teachboxtext {
@@ -60,17 +58,17 @@
         margin-top: 11px;
         margin-bottom: 11px;
     }
-
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 400px) { 
     .teachboxtext {
         height: 200%;
     }
-    
+
     .teachtext {
         font-size: 27;
     }
+
     .immind {
         margin-left: 9%;
         width: 90%;
@@ -87,7 +85,9 @@
         margin-top: 11px;
         margin-bottom: 11px;
     }
-
+    .collage {
+        width: 20%;
+      }
 }
 
 @media only screen and (max-width : 300px) { 
@@ -95,22 +95,21 @@
         font-size: 25;
     }
     
-
     .immind {
         margin-left: 9%;
         width: 90%;
     }
+
     .course { 
         display: flex;
         flex-direction: column;
         padding-left: 5%;
         padding-right: 5%;
-     }
+    }
 
     .boxcourseinf {
         width: 100%;
         margin-top: 11px;
         margin-bottom: 11px;
     }
-
 }

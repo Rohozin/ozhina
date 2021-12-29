@@ -1,19 +1,46 @@
 
-/* Small Devices, Tablets */
+
+@media only screen and (max-width : 1031px) {
+
+    .text {
+        font-size: 17;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
 @media only screen and (max-width : 768px) {
 
     .ozhinabig {
-        padding-top: 60%;
+        padding-top: 45%;
         padding-bottom: 70%;
         width: 100%;
     }
-    
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 110px;
+        padding-left: 2%;
+        padding-right: 4%;
+        color: cornsilk;
+    }
+    .text {
+
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .oneph {
+        
+        width: 100%;
+    }
 }
-/* Extra Small Devices, Phones */
+
 @media only screen and (max-width : 480px) {
 
     .ozhinabig {
-        padding-top: 90%;
+        padding-top: 65%;
         padding-bottom: 130%;
         width: 100%;
     }
@@ -23,7 +50,7 @@
         padding-right: 10%;
     }
     .textp {
-        font-size: 17;
+        font-size: 15;
     }
     .box {
         display: flex;

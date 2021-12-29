@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="logdiv">
-        <h1>Welcome {{ new_user.first_name }}!</h1>
+    <div class="logd">
+        <h1 class="regdone">Welcome {{ new_user.first_name }}</h1>
         <p>Your account has been successfully created.
             You are right <a href="{% url "login" %}">log in</a>.</p>
     </div>

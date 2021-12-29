@@ -87,8 +87,12 @@ class Product (models.Model):
 
 
 class Imagecollection (models.Model):
-    title               = models.CharField (max_length=30,
+    title               = models.CharField (max_length=90,
                                 verbose_name= 'Name of the creator'
+                                )
+    url = models.SlugField (max_length=90,
+                                unique=True,
+                                null=True
                                 )
     collectionpresent   = models.ForeignKey (Product, 
                                             related_name = 'imagecollection', 
@@ -111,6 +115,7 @@ class Imagecollection (models.Model):
                                     null=True,
                                     verbose_name='Price per model'
                                     )
+    file        = models.FileField(upload_to="data/user/file_imagecollection/", null=True, blank=True)
     created = models.DateTimeField (auto_now_add=True)
     updated = models.DateTimeField (auto_now=True)
 
@@ -215,8 +220,8 @@ class CollectionUser(models.Model):
 
     class Meta:   
         ordering = ['-video']
-        verbose_name = 'collection'
-        verbose_name_plural = 'collections'
+        verbose_name = 'user_collection'
+        verbose_name_plural = 'user_collections'
 
     def __str__(self):
         return self.clothingparameters
@@ -261,7 +266,6 @@ class Course (models.Model):
 
     
 class Imagecourse(models.Model):
-    
     image           = models.ImageField (upload_to="data/learn/studentimage",
                                         blank=True,
                                         verbose_name='Studentimage'
@@ -274,7 +278,7 @@ class Imagecourse(models.Model):
     created         = models.DateTimeField (auto_now_add=True)
 
     class Meta:
-        ordering = ['-image']
+        ordering = ['-created']
 
 
 class OrderTeach (models.Model):
