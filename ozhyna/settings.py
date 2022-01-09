@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--5z@g@j)m6jbt*2puc+3v)@rlm$j)xk9ccw0*ldg&ac_po)ev@
 # False при деплое
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ozhina.com', 'www.ozhina.com']
 
 
 # Application definition
